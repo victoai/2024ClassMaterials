@@ -1,0 +1,2 @@
+use "git add <file>..." to include in what will be committed
+커밋할 항목에 포함하려면 "git add <file>..."을 사용하세요.

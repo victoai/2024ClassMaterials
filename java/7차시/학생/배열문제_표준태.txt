@@ -1,0 +1,83 @@
+
+
+
+
+ 다음과 같은 기온정보가 주어진다
+
+ int[]  temperatures = { 27,27,28, 29,30 , 33,32,33,32,31,31,33,33,31} ;
+
+
+문제1. 배열의 모든 기온을 출력하시오
+문제2.  배열의 모든 기온을 거꾸로 출력하시오
+문제3.  평균기온을 출력하시오
+문제4. 평균기온보다 높은 일수를 구하시오
+
+
+
+int[]  temperatures = { 27,27,28,29,30,33,32,33,32,31,31,33,33,31} ;
+		int avg = 0;
+		int[] havg = new int [temperatures.length];
+		System.out.println("모든 기온");
+		for(int i=0; i<temperatures.length; i++) {
+			System.out.print(temperatures[i]+" ");
+		}
+		
+		System.out.println();
+		System.out.println("모든 기온 역순");
+		for(int i=13; i>=0; i--) {
+			System.out.print(temperatures[i]+" ");
+		}
+		
+		System.out.println();
+		System.out.println("평균기온");
+		for(int i=0; i<temperatures.length; i++) {
+			avg += temperatures[i];
+		
+		}
+		avg/=temperatures.length;
+		System.out.println(avg);
+		System.out.println("평균기온보다 높은 일수");
+		for(int i=0; i<temperatures.length; i++) {
+			if(avg <temperatures[i]) {
+				havg [i] = temperatures[i];
+				System.out.print(havg[i]+" ");
+			}
+			
+		}
+
+
+
+
+
+
+배열문제
+
+
+배열은 20개로 준비한다. (약수의 개수를 미리 알지 못하니 넉넉히 20개로 선언한 다음 사용합니다.)
+ ( 임의수는 30을 넘지 않는다)
+어떤 수 입력  ->        어떤수에 대한 약수를 배열에 저장하고 
+                       한꺼번에 출력하는 프로그램 작성
+
+8  ->    1 , 2 ,4 , 8
+
+ 
+	int[] measure = new int [20];
+		int k;
+		System.out.println("약수를 구하고 싶은 수를 적어주세요.");
+		Scanner sc = new Scanner(System.in);
+		k=sc.nextInt();
+		for(int i=1; i<=k; i++) {
+			for(int j=1; j<=k; j++) {
+				if(i*j==k) {
+					measure[j]=i; 
+					System.out.println(measure[j]);
+				}
+			}
+		}
+
+		
+ 
+
+
+
+ 

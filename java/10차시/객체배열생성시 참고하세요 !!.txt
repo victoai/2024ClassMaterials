@@ -1,0 +1,16 @@
+객체배열생성시 참고하세요 !!
+
+Customer[] customers  = new Customer[3];
+
+customers[0] = new Customer();
+customers[0].input("v1", "1234" ,"홍길동","서울");
+customers[1]= new Customer();
+customers[1].input("v2", "1234" ,"김길동","서울");
+customers[2]= new Customer();
+customers[2].input("v3", "1234" ,"다길동","부산");
+
+
+customer[0].printInfo();
+customer[1].printInfo();
+customer[2].printInfo();
+

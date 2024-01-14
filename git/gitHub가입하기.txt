@@ -1,0 +1,34 @@
+
+https://github.com/
+
+1. 
+회원가입
+Singup
+
+이메일: victoai999@gmail.com
+사용자이름 : victoai
+비번          : dusan2302!
+저장하기
+
+
+
+2.  토큰 만들기
+Sign Up으로 가입 후 로그인
+
+Personal access token 만들기
+
+우측 상단의 프로필 - Settings
+Developer Settings
+Personal access tokens - Generate new token
+repo 및 원하는 기능에 체크, 기간 설정 뒤 Generate token
+토큰 안전한 곳에 보관해 둘 것
+
+토큰 컴퓨터에 저장하기
+
+윈도우 가이드
+자격증명관리자
+Windows 자격 증명 관리자
+Windows 자격 증명 선택
+git:https://github.com 자격 정보 생성
+사용자명과 토큰 붙여넣기
+

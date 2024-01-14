@@ -1,0 +1,7 @@
+file.c 
+*.c
+logs
+logs/
+logs/debug.log
+logs/*.c
+logs/**/debug.log

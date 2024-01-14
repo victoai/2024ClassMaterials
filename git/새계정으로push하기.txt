@@ -1,0 +1,6 @@
+새로운 계정으로 인증 설정:
+
+git remote -v 명령을 사용하여 현재 원격 저장소의 URL을 확인하세요.
+새 계정으로 push하기 위해 해당 원격 저장소에 대한 인증 정보를 업데이트하세요.
+ 
+git remote set-url origin https://새계정@github.com/사용자이름/레포지토리.git
