@@ -1,0 +1,52 @@
+
+
+클래스1 {
+
+     int a;
+     int b;
+     int c;
+
+///
+    void 매서드1(){
+    }
+
+   void 매서드2(){
+
+       }
+
+
+}
+ 
+
+
+클래스2 {
+
+     static 변수;
+
+     static void 매서드1(){
+
+        }
+
+     static void 매서드2(){
+
+        }
+
+}
+
+
+
+클래스3 {
+    static 변수;
+
+     static void 매서드1(){
+
+        }
+
+     static void 매서드2(){
+
+        }
+
+}
+
+ 
+

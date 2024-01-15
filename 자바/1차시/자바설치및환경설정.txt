@@ -1,0 +1,37 @@
+자바개발환경설정하기
+1. jdk11 다운로드 및 설치하기
+2. 환경변수설정하기
+
+■ 다운로드 및 설치
+
+구글검색
+jdk 11 다운로드
+(oracle 사이트)
+https://www.oracle.com/java/technologies/downloads 
+
+window 사용자경우
+x64 installer 선택
+설치마법사 실행(변경없이 next 눌러서 진행함)
+
+
+■설정하기
+
+제어판 -> 시스템 ->고급시스템 설정
+환경변수-> 아래쪽  시스템변수 -> 새로만들기 클릭
+
+* JAVA_HOME (약속된 이름) 만들기
+
+변수이름 : JAVA_HOME 
+변수값    : C:\Program Files\Java\jdk11 (jdk설치된 경로, 복사한 다음 사용)
+
+path  클릭 -> 편집 ->새로만들기
+%JAVA_HOME%\bin
+
+
+■ 확인하기
+실행창에서  ->cmd
+
+javac
+java  
+명령어 각 실행하기 ,  알수없는 명령이 아니라 내용이 뭔가 나오면 OK
+

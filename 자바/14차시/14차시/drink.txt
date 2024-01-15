@@ -1,0 +1,17 @@
+day14.equals오버라이드복습.Kmg_Drink
+day14.equals오버라이드복습.StudentJH
+day14.equals오버라이드복습.박태민_음료상속
+day14.equals오버라이드복습.Ek_Student
+day14.equals오버라이드복습.Student_yj
+day14.equals오버라이드복습.LJH
+day14.equals오버라이드복습.LY_Student
+day14.equals오버라이드복습.juntae
+day14.equals오버라이드복습.Beverage_kdy
+day14.equals오버라이드복습.SYJ
+day14.equals오버라이드복습.KHS
+day14.equals오버라이드복습.문나정
+day14.equals오버라이드복습.jw_음료
+day14.equals오버라이드복습.병진
+day14.equals오버라이드복습.음료마시기_김민지
+day14.equals오버라이드복습.Kjy
+		

@@ -1,0 +1,29 @@
+package week04.day3.Runnable.YunPower;
+
+public class Program2 {
+	
+	 	
+	public void mainrun( MyRunnable runnable) {
+		runnable.run();		
+	}
+
+	
+	public static void main(String[] args) {
+		Program2 p = new Program2();		
+		 
+		//p.mainrun( new A());  //익명객체 
+		//p.mainrun(new Battle());
+		//p.mainrun(new Coffee());
+		
+		//p.mainrun(new Jjyrun());
+		//p.mainrun(new Jjyrun());
+		//p.mainrun(new kjs());
+		//p.mainrun(new Mandarin());
+		//p.mainrun(new ScoreAverage());
+		//p.mainrun(new YhRun());
+		//p.mainrun(new Star소영());
+	  	p.mainrun(new YunProgram());
+		
+	}
+
+}
