@@ -1,0 +1,63 @@
+public class ListNode {
+    public int val;
+    public ListNode next;
+
+    public ListNode() {}
+
+    public ListNode(int val) {
+        this.val = val;
+    }
+
+    public ListNode(int val, ListNode next) {
+        this.val = val;
+        this.next = next;
+    }
+}
+
+public class LinkedList {
+    public ListNode head;
+
+    public LinkedList() {
+        this.head = null;
+    }
+
+    public void append(int val) {
+        if (head == null) {
+            head = new ListNode(val);
+            return;
+        }
+
+        ListNode node = head;
+        while (node.next != null) {
+            node = node.next;
+        }
+
+        node.next = new ListNode(val);
+    }
+
+    public void delete(int val) {
+        if (head == null) {
+            return;
+        }
+
+        if (head.val == val) {
+            head = head.next;
+            return;
+        }
+
+        ListNode current = head;
+        ListNode prev = null;
+
+        while (current != null && current.val != val) {
+            prev = current;
+            current = current.next;
+        }
+
+        if (current == null) {
+            // Node with the given value not found
+            return;
+        }
+
+        prev.next = current.next;
+    }
+}
