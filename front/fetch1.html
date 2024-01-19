@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        const apiUrl = 'http://test.api.weniv.co.kr/mall';
+
+// fetch를 사용하여 데이터를 비동기적으로 가져오는 함수
+    fetch(apiUrl)
+    .then(response => {
+        if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        // 가져온 데이터 출력 또는 활용
+        console.log('데이터:', data);
+    })
+    .catch(error => {
+        // 에러 발생 시 처리
+        console.error('에러 발생:', error.message);
+    });
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

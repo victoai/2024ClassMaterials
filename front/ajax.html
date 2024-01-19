@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Document</title>
+
+</head>
+
+<body>
+  <script>
+    // 데이터를 가져올 URL
+    const apiUrl = 'http://test.api.weniv.co.kr/mall';
+
+    // jQuery를 사용하여 데이터를 비동기적으로 가져오는 함수
+    function fetchData() {
+      $.ajax({
+        url: apiUrl,
+        method: 'GET',
+        dataType: 'json',
+        success: function (data) {
+          // 가져온 데이터 출력 또는 활용
+          console.log('데이터:', data);
+        },
+        error: function (xhr, status, error) {
+          // 에러 발생 시 처리
+          console.error('에러 발생:', error);
+        }
+      });
+    }
+
+    // fetchData 함수 호출
+    fetchData();
+
+  </script>
+</body>
+
+</html>
