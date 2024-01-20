@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .slide-wrap{
+            width: 1200px;           
+        }
+        .gallery{
+            width: 100%;
+            height: 500px;
+                                
+        } 
+
+        .gallery > .slide{
+           display: none;            
+        }  
+        
+
+        .gallery {
+
+           
+        }
+
+        .gallery  .inner-wrap{
+            width:80%;
+            margin:0px auto;
+            border:1px solid black;
+            display: flex;
+              
+        }
+
+        .gallery  .inner-wrap .left{
+            width:40%;
+            height: 500px;
+            border:1px solid black;
+            background-color: red;
+
+            position:relative;
+        }
+
+        .gallery  .inner-wrap .left .title{
+            position: absolute;
+            top:20px;
+            font-size: 24px;
+            left:30px;
+            border:1px solid black;
+        }
+
+        .gallery  .inner-wrap .left .contents{
+            position: absolute;
+            bottom: 100px;
+            right: 30px;
+            font-size: 20px;           
+            border:1px solid black;
+        }
+        .gallery  .inner-wrap .right{
+            width:60%;
+            height: 500px;
+            border:1px solid black;
+        }
+
+        /* 반대방향의  css  왼쪽 과 오른쪽 다름*/
+        .gallery  .inner-wrap .left2{
+            width:60%;
+            height: 500px;
+            border:1px solid black;
+        }
+
+
+        .gallery  .inner-wrap .right2{
+            width:40%;
+            height: 500px;
+            border:1px solid black;
+            background-color: red;
+            position: relative;
+        }
+
+        .gallery  .inner-wrap .right2 .title{
+            position: absolute;
+            top:20px;
+            font-size: 24px;
+            left:30px;
+            border:1px solid black;
+        }
+
+        .gallery  .inner-wrap .right2 .contents{
+            position: absolute;
+            bottom: 100px;
+            right: 30px;
+            font-size: 20px;           
+            border:1px solid black;
+        }
+
+    </style>
+
+
+<script>
+     
+       window.addEventListener("load" , function(){
+
+       let divtags=  document.querySelectorAll(".slide-wrap .gallery .slide");
+       let contents =[];       
+       divtags.forEach( function( div , index){
+        contents[index] = div.innerHTML;
+       });
+  
+
+        let index=-1;   // 이미지배열의 index를 의미 (1 => 두번째 부터 )       
+        function nextChangeImg(){    
+            index++;        
+            if( index >= contents.length)
+                index=0;
+        
+            let gallery   =document.querySelector(".gallery");                
+             gallery.innerHTML= contents[index];
+             
+             // contain  ,  100%  500px
+                         
+           
+            gallery.animate( {
+                    transform: [
+                    'translateX(100%)',    //시작
+                    'translateX(0px)'      //도착
+                    ]
+                 },
+                 {
+                     duration:1000               // 위의효과가 1초간 지속되도록
+                 });            
+          }
+
+          setInterval(nextChangeImg , 3000);      
+
+       });      
+     
+</script>
+</head>
+<body>    
+    
+        <div class="slide-wrap">
+            <div class="gallery">  
+                <div class="slide">  <!--  이 클래스는 사용이 안됨 , 없어지는  div임  주의 !!!!-->
+
+                     <div class="inner-wrap">
+                        <div class="left">  <!--  position:relative 기준으로 왼쪽 영역 하나씩 absolute-->
+                              <div class="title">우리 동네 콘 마켓 <br>
+                                      당신의 곁에...
+                              </div>
+
+                              <div class="contents">
+                                따뜻하게 보내세요 <br>                                
+                            </div>
+                        </div>
+                        <div class="right"> 우</div>
+                     </div>
+
+                </div>
+                <div class="slide">   <!-- 여기에 스타일 주지 마세요 !! -->
+                    <div class="inner-wrap">
+                        <div class="left"> 
+                              <div class="title">우리 동네 콘 마켓 <br>
+                                      당신의 곁에...
+                              </div>
+
+                              <div class="contents">
+                                따뜻하게 보내세요 <br>                                
+                            </div>
+                        </div>
+                        <div class="right"> 우</div>
+                     </div>   
+                </div>
+
+                <div class="slide">   <!-- 여기에 스타일 주지 마세요 !! -->
+                    <div class="inner-wrap">
+                        <div class="left2"> 좌</div>
+                        <div class="right2"> 
+                            <div class="title">우리 동네 콘 마켓 <br>
+                                당신의 곁에...
+                            </div>
+
+                            <div class="contents">
+                            따뜻하게 보내세요 <br>                                
+                        </div>
+                        </div>
+                     </div> </div>                
+            </div>           
+        </div> 
+    
+</body>
+</html>
