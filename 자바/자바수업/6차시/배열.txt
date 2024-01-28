@@ -1,0 +1,42 @@
+배열만들기 
+  
+// 배열만들기
+//배열 표현 문법 언어마다 다르다
+
+
+자바스크립트
+let likes = [  "모범택시2" ,    "무빙" , "이재곧죽는다"  ];
+let   arr  = new Array(3);
+
+String[]  likes = { "모범택시2" ,    "무빙" , "이재곧죽는다"  } ;
+String[] arr = new String[3];
+
+ char likes [3][20] = {"모범택시2", "무빙", "이재곧죽는다"};
+  //배열만들기
+ char arr[3][20];
+ char **arr = (char **)malloc( sizeof(char *)  * 3);
+
+
+자바스크립트  (저번 주 로또번호) 1103회차
+
+let likeNumber = [ 10 ,12 ,29 ,31, 40 ,44 ];
+//배열만들기
+let arr  = new Array(6);
+
+자바
+int[] likeNumber  =  { 10 ,12,29, 31 ,40, 44 } ;
+//배열만들기
+int[] arr = new int[6];
+
+
+C언어
+int[] likeNumber ={ 10 ,12, 29, 31 ,40 ,44 };
+
+// 두 개의 형식으로 배열을 만들 수 있다.
+int arr[6];
+int* arr = (int*) malloc(sizeof(int) * 3) ;
+
+
+
+
+ 
