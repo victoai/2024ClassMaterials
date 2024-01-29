@@ -1,0 +1,24 @@
+public class Test{
+//정적메모리 : 4*3 =12 +1 +8 = 21
+// 컴파일시점 사용할 메모리 결정된다. 
+   public static void main(String[] args){
+        int a, b, c;
+        char ch;
+        dobule d;   
+         a=10;
+         b=8;          
+   }
+}
+public class Test2{
+   public stataic void main( String[] args) {
+
+       Scanner sc = new Scanner( System.in );
+       
+	//동적메모리
+        // 프로그램 실행시 사용할 메모리가 결정되는거
+       System.out.println(" 배열의크기를 결정해줘 ");
+       int max  = sc.nextInt();
+       int[] arr = new int[max];      
+   }    
+
+}

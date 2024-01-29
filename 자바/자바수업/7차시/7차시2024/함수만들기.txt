@@ -1,0 +1,32 @@
+ 
+
+1)
+          //반환타입    //입력정보
+public static int  a( int a ) {
+     return 3;
+ }
+
+2)
+ public static int b(char a){
+     return 4;
+ }
+
+3)
+ public static char c( int a){
+    return 'c';
+ }
+  
+4)
+ public static double d( ){
+     return 2.5;
+ }
+
+5)
+ public static String e(){
+   return "안녕" ;
+ }
+
+
+
+
+
