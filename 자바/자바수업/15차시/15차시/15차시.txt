@@ -1,5 +1,4 @@
 
-
 인터페이스란?
 
 계산기를 만들기 위한 인터페이스 Calculator인터페이스 
@@ -8,10 +7,8 @@
 
 추상매서드만을 가진 클래스이다
 Interface MyInterface{
-
          void a();
          void b();
-
 }
 
 
