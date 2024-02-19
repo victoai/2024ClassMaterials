@@ -1,0 +1,12 @@
+내보낼파일 선택후->
+export ->  java -> runnable jar  
+
+파일선택하기
+내보는곳 선택하기
+
+
+실행하기
+java -jar  server.jar
+java -jar  client.jar
+
+
