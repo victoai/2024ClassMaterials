@@ -1,0 +1,102 @@
+-- 210p
+-- 문제01
+select * from emp;
+
+select round(max(sal + decode(comm,null,0,comm)), 1),
+round(min(sal+decode(comm,null,0,comm)),1),
+round(avg(sal+decode(comm,null,0,comm)),2)
+from emp;
+
+-- 문제02
+select * from STUDENT;
+select birthday from Student;
+
+select
+count(BIRTHDAY) as TOTAL,
+count(decode(substr(BIRTHDAY,4,2), 01, 'JAN')) || 'EA' JAN,
+count(decode(substr(BIRTHDAY,4,2), 02, 'FEB')) || 'EA' FEB,
+count(decode(substr(BIRTHDAY,4,2), 03, 'MAR')) || 'EA' MAR,
+count(decode(substr(BIRTHDAY,4,2), 04, 'APR')) || 'EA' APR,
+count(decode(substr(BIRTHDAY,4,2), 05, 'MAY')) || 'EA' MAY,
+count(decode(substr(BIRTHDAY,4,2), 06, 'JUN')) || 'EA' JUN,
+count(decode(substr(BIRTHDAY,4,2), 07, 'JUL')) || 'EA' JUL,
+count(decode(substr(BIRTHDAY,4,2), 08, 'AUG')) || 'EA' AUG,
+count(decode(substr(BIRTHDAY,4,2), 09, 'SEP')) || 'EA' SEP,
+count(decode(substr(BIRTHDAY,4,2), 10, 'OCT')) || 'EA' OCT,
+count(decode(substr(BIRTHDAY,4,2), 11, 'NOV')) || 'EA' NOV,
+count(decode(substr(BIRTHDAY,4,2), 12, 'DEC')) || 'EA' DEC
+from student;
+
+
+-- 문제03
+select * from STUDENT;
+
+select
+count(TEL) as TOTAL,
+count(decode(substr(TEL,1, instr(TEL, ')')-1), 02, 'SEOUL')) SEOUL,
+count(decode(substr(TEL,1, instr(TEL, ')')-1), 031, 'GYEONGGI')) GYEONGGI,
+count(decode(substr(TEL,1, instr(TEL, ')')-1), 051, 'BUSAN')) BUSAN,
+count(decode(substr(TEL,1, instr(TEL, ')')-1), 052, 'ULSAN')) ULSAN,
+count(decode(substr(TEL,1, instr(TEL, ')')-1), 031, 'DAEGU')) DAEGU,
+count(decode(substr(TEL,1, instr(TEL, ')')-1), 031, 'GYEONGNAM')) GYEONGNAM
+from student;
+
+-- 문제 04
+INSERT INTO emp(empno,deptno, ename, sal) VALUES (1000,10,'Tiger',3600);
+INSERT INTO emp(empno,deptno, ename, sal) VALUES (2000,10,'Cat',3000);
+
+select * from emp;
+select empno, ename, job, sal from emp;
+
+select deptno, 
+count(decode(job, 'CLERK', empno)) clerk,
+count(decode(job, 'MANAGER', empno)) manager,
+count(decode(job, 'PRESIDENT', empno)) PRESIDENT,
+count(decode(job, 'ANALYST', empno)) ANALYST,
+count(decode(job, 'SALESMAN', empno)) SALESMAN
+from emp
+group by DEPTNO;
+
+select * from emp;
+
+
+ 
+
+
+
+
+select deptno,
+sum(decode(job, 'CLERK', sal)) CLERK,
+sum(decode(job, 'MANAGER', sal)) MANAGER,
+sum(decode(job, 'PRESIDENT', sal)) PRESIDENT,
+sum(decode(job, 'ANALYST', sal)) ANALYST,
+sum(decode(job, 'SALESMAN', sal)) SALESMAN,
+sum(decode(deptno, '10', job, 'CLERK', sal)) TOTAL
+from emp
+group by DEPTNO
+order by DEPTNO;
+
+
+
+select deptno,
+decode(job, 'CLERK', sal) CLERK,
+decode(job, 'MANAGER', sal) MANAGER,
+decode(job, 'PRESIDENT', sal) PRESIDENT,
+decode(job, 'ANALYST', sal) ANALYST,
+decode(job, 'SALESMAN', sal) SALESMAN,
+  sal  TOTAL
+from emp;
+--group by DEPTNO
+--order by DEPTNO;
+
+
+select decode(deptno, null, '전체합계', deptno),
+sum(decode(job, 'CLERK', sal, 0)) CLERK,
+sum(decode(job, 'MANAGER', sal, 0)) MANAGER,
+sum(decode(job, 'PRESIDENT', sal, 0)) PRESIDENT,
+sum(decode(job, 'ANALYST', sal, 0)) ANALYST,
+sum(decode(job, 'SALESMAN', sal, 0)) SALESMAN,
+sum(sal) as TOTAL
+from emp
+group by rollup(DEPTNO)
+order by DEPTNO;

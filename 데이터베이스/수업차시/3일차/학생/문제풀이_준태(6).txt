@@ -1,0 +1,103 @@
+오디션
+1.참자가 조회
+
+SELECT 
+JOIN_ID 참가자ID,
+JOIN_NM 참가자이름,
+to_char(TO_date(BIRTH),'yyyy"년"mm"월"dd"일"') 생년월일,
+decode(GENDER,'M','남성','W','여성') 성별,
+decode(SPECIALTY,'D','댄스','R','랩','V','보컬') 실력무대,
+CHARM 매력무대
+from tbl_join_200;
+
+2.참가자 점수조회
+
+ select 
+s.SCORE_NO 계좌번호,
+s.ARTISTID 참가자ID,
+j.JOIN_NM 참가자이름,
+to_char(TO_date(j.BIRTH),'yyyy"년"mm"월"dd"일"') 생년월일,
+s.SCORE 점수,
+nvl(case 
+when s.SCORE>=90 then 'A'
+when s.SCORE>=80 then 'B'
+when s.SCORE>=70 then 'C'
+ end,'D') 등급,
+m.MENTOR_NM 맨토이름
+from  tbl_score_200 s
+join tbl_join_200 j
+on s.ARTISTID = j.JOIN_ID
+join tbl_mentor_200 m
+on s.MENTORID = m.MENTOR_ID;
+
+3.참가자 등수 조회
+select 
+ j.JOIN_ID 참가자ID,
+ j.JOIN_NM 참가자이름,
+ sum(s.SCORE)종합점수,
+ TRUNC(avg(s.SCORE),2) 평균점수,
+ rank() over(order by sum(s.SCORE) desc) 순위
+from  tbl_score_200 s
+join tbl_join_200 j
+on s.ARTISTID = j.JOIN_ID
+join tbl_mentor_200 m
+on s.MENTORID = m.MENTOR_ID
+group by  j.JOIN_ID,j.JOIN_NM
+ORDER by sum(s.SCORE) DESC;
+
+수강신청
+
+1.참가자 조회
+select 
+c.S_ID 과목코드,
+c.S_NAME 과목명,
+c.S_GRADE 학점,
+l.T_NAME 담당강사,
+decode(c.WEEKDAY,'M ','월','TU','화','W ','수','TH','목','F ','금') 요일,
+decode(c.START_H,'900','09:00','1300','13:00','1330','13:30','1500','15:00') 시작시간,
+decode(c.END_H,'1100','11:00','1200','12:00','1600','16:00','1630','16:30','1530','15:30','1800','18:00') 종료시간
+from  tbl_course_300 c
+join tbl_lecturer_300 l
+on c.TEACHER_ID = l.T_ID;
+
+cu
+1.상품목록
+
+select 
+GOODS_CD 상품코드,
+GOODS_NM 상품명,
+GOODS_PRICE 판매단가,
+COST "(상품)원가",
+to_char(IN_DATE,'yyyy-mm-dd')입고일자
+from goods_tbl_500;
+
+2.점포별 매출현황
+
+select 
+st.STORE_NM 점포명,
+sum (case when  s.PAY_TYPE = 01 then g.GOODS_PRICE * s.SALE_CNT else 0 end)||'원' 현금매출,
+sum (case when  s.PAY_TYPE = 02 then g.GOODS_PRICE * s.SALE_CNT else 0 end) ||'원' 카드매출,
+sum( g.GOODS_PRICE * s.SALE_CNT) ||'원' as 총매출
+from  sale_tbl_500 s
+join goods_tbl_500 g
+on s.GOODS_CD = g.GOODS_CD
+join store_tbl_500 st
+on s.STORE_CD = st.STORE_CD
+group by st.STORE_NM;
+
+3.점포 판매현황
+
+select 
+decode (s.SALE_FG ,'1','판매','2','취소') 판매구분,
+s.SALE_NO 판매번호,
+to_char(s.SALE_YMD,'yyyy-mm-dd') 판매일자,
+g.GOODS_NM 상품명,
+s.SALE_CNT 판매수량,
+g.GOODS_PRICE*s.SALE_CNT 판매금액,
+decode(s.PAY_TYPE,'02','카드','01','현금') 수취구분
+from  sale_tbl_500 s
+join goods_tbl_500 g
+on s.GOODS_CD = g.GOODS_CD
+join store_tbl_500 st
+on s.STORE_CD = st.STORE_CD
+where st.STORE_CD='A001';

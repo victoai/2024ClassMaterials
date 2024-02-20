@@ -1,0 +1,329 @@
+--문제1
+select * from emp;
+select sal , nvl(comm, 0) 
+from emp;
+
+
+select  sal+comm , nvl(comm,0) 
+from emp  ;
+
+
+select  max(nvl(sal,0)),min(nvl(sal,0))
+from emp;
+
+--
+select  max(nvl(sal,0))
+MAX,min(nvl(sal,0))MIN,
+round(avg(sal+nvl(comm,0)),1) AVG
+from emp;
+
+
+select  max(nvl(sal,0)+nvl(comm,0))
+MAX,min(nvl(sal,0)+nvl(comm,0))MIN,
+round(avg(sal+nvl(comm,0)),1) AVG
+from emp;
+
+-- 
+
+
+select * from student;
+
+select to_char(BIRTHDAY,'mm') from student;
+
+select count (to_char(birthday, 'mm')) total from student;
+--
+
+select count (TO_CHAR(birthday,'mm')) || 'ea' total ,
+count(decode(to_char(birthday,'mm'),'01',0))|| 'ea'jan,
+count(decode(to_char(birthday,'mm'),'02',0))|| 'ea'feb,
+count(decode(to_char(birthday,'mm'),'03',0))|| 'ea'mar,
+count(decode(to_char(birthday,'mm'),'04',0))|| 'ea'apr,
+count(decode(to_char(birthday,'mm'),'05',0))|| 'ea'may,
+count(decode(to_char(birthday,'mm'),'06',0))|| 'ea'jun,
+count(decode(to_char(birthday,'mm'),'07',0))|| 'ea'jul,
+count(decode(to_char(birthday,'mm'),'08',0))|| 'ea'aug,
+count(decode(to_char(birthday,'mm'),'09',0))|| 'ea'sep,
+count(decode(to_char(birthday,'mm'),'10',0))|| 'ea'oct,
+count(decode(to_char(birthday,'mm'),'11',0))|| 'ea'nov,
+count(decode(to_char(birthday,'mm'),'12',0))|| 'ea'dec
+
+from student;
+
+
+
+---
+select * from student;
+select count(substr(tel,1,instr(tel, ')')-1)) total from
+student;
+
+--
+
+SELECT count(TEL) as 토탈,
+          count(decode(substr(tel,1,instr(tel, ')')-1),'02',1))as 서울 ,
+          count(decode(SUBSTr(TEL,1,instr(tel, ')')-1), '051',1))as 부산,
+          count(decode(SUBSTr(TEL,1,instr(tel, ')')-1), '052',1))as 울산,
+          count(decode(SUBSTr(TEL,1,instr(tel, ')')-1), '053',1))as 대구,
+           count(decode(SUBSTr(TEL,1,instr(tel, ')')-1), '055',1))as 경남
+
+          from student;
+
+--
+
+insert into emp(empno, deptno,ename,sal)
+ values (1000,10,'Tiger',3600);
+
+insert into emp(empno, deptno,ename,sal)
+ values (2000,10,'Cat',3000);
+commit;
+
+select * from emp;
+select empno, ename, job, sal from emp;
+--
+select deptno ,empno, ename, job, sal from emp;
+select sum(nvl(sal,0)) total from emp;
+
+--
+
+select deptno ,empno, ename, job, sal from emp;
+
+sum(nvl(sal,0)) total
+
+--
+select deptno, 
+count(decode(job, 'CLERK' , empno)) clerk,
+count(decode(job, 'MANAGER' , empno)) MANAGER,
+count(decode(job, 'PRESIDENT' , empno))PRESIDENT,
+count(decode(job, 'SALESMAN' , empno)) SALEMAN,
+count(decode(job, 'ANALYST' , empno)) ANALYST,
+sum(nvl(sal,0)) total
+from emp group by deptno;
+
+
+--
+
+select deptno, job ,sal from emp;
+select deptno, decode(job , 'CLERK', sal) clerk,
+        decode(job, 'MANAGER',sal) manager,
+         decode(job, 'PRESIDENT',sal) president
+from emp;
+
+--
+
+select deptno, nvl(sum(decode(job , 'CLERK', sal)),0) clerk,
+     nvl(SUM(decode(job, 'MANAGER',sal)),0) manager,
+     nvl(SUM(decode(job, 'PRESIDENT',sal)),0) president,
+     nvl(sum(decode(job, 'ANALYST', sal)),0) analyst,
+     nvl(sum(decode(job, 'SALESMAN' , sal)),0) SALESMAN,
+     sum(sal)-nvl(sum(Decode(job,null,sal)),0)total
+from emp 
+group by rollup(deptno);
+
+--
+
+select decode(deptno, null, ' ' ,deptno) deptno, 
+  nvl(sum(decode(job,'CLERK' , sal)),0) clerk,
+  nvl(sum(decode(job, 'MANAGER', sal)),0)manager,
+  nvl(sum(decode(job,'PRESIDENT',sal)),0) president,
+  nvl(sum(decode(job, 'ANALYST', sal)),0) analyst,
+  nvl(sum(decode(job, 'SALESMAN' , sal)),0) SALESMAN,
+sum(sal)-nvl(sum(decode(job,null,sal)),0) total
+from emp 
+group by rollup(deptno);
+
+--
+
+
+select * from emp;
+
+select deptno, ename, sal from emp;
+select deptno, ename , sum(sal) 
+from emp group by deptno, ename;
+
+-- hy오디션
+
+select * from tbl_join_200;
+select * from TBL_MENTOR_200;
+select * from TBL_SCORE_200;
+
+select * from tbl_join_200;
+select join_id as 참가자id , join_nm as 참가자이름 , birth as 생년월일 , gender as 성별 , SPECIALTY as 실력무대 , charm as 매력무대
+
+from tbl_join_200;
+
+SELECT --'yyyy "년"mm "월"dd "일"'
+FROM tbl_join_200;
+
+SELECT  DECODE(gender, 'M', '남성') AS 성별
+FROM tbl_join_200;
+-------------------------------1번시작
+select * from tbl_join_200;
+
+select  join_id as 참가자id ,
+        join_nm as 참가자이름 ,
+        to_char(TO_date(birth),
+        'yyyy "년"mm "월"dd "일"') AS 생년월일,
+        DECODE(gender, 'M', '남성') AS 성별,
+        decode(SPECIALTY, 'D' ,'댄스', 'R' ,'보컬','V' ,'자작곡') as 실력무대,
+        charm as 매력무대
+
+        
+FROM tbl_join_200;
+
+--2번--
+select * from tbl_join_200;
+select * from TBL_MENTOR_200;
+select * from TBL_SCORE_200;
+
+
+select *
+from TBL_SCORE_200 s
+join TBL_JOIN_200 j 
+on s.ARTISTID= j.JOIN_ID;
+JOIN TBL_MENTOR_200 m
+ON s.ARTISTID_id =m.MENTOR_ID;
+
+select * from TBL_SCORE_200;
+
+
+SELECT s.score_no AS 계좌번호,
+       s.ARTISTID AS 참가자ID,
+       j.JOIN_NM AS 참가자이름,
+       j.BIRTH AS 생년월일,
+       s.SCORE AS 점수 ,
+       CASE 
+           WHEN s.SCORE >= 90 THEN 'A'
+           WHEN s.SCORE >= 80 THEN 'B'
+           WHEN s.SCORE >= 70 THEN 'C'
+           ELSE 'D'
+       END AS "등급",
+       m.mentor_NM AS 멘토이름 
+       
+FROM TBL_SCORE_200 s
+JOIN TBL_JOIN_200 j ON s.ARTISTID = j.JOIN_ID
+JOIN TBL_MENTOR_200 m ON s.MENTORID = m.MENTOR_ID;
+
+--------------------------------------------------------------
+SELECT *FROM TBL_SCORE_200;
+SELECT *FROM TBL_JOIN_200;
+
+select *
+from TBL_SCORE_200 s
+join TBL_JOIN_200 j
+on s.ARTISTID = j.JOIN_ID;
+---
+
+select j.join_id , j.join_nm,
+sum(s.score)
+from TBL_SCORE_200 s
+join TBL_JOIN_200 j
+on s.ARTISTID = j.JOIN_ID group by j.join_id, j.join_nm
+ ;
+
+-------3번
+
+select j.join_id as 참가자id, 
+       j.join_nm as 참가자이름,
+       sum(s.score)as 종합접수,
+       round(avg(s.score),2) as 평균점수,
+       rank() over(order by avg(s.score)desc) as 순위
+      
+from TBL_SCORE_200 s
+join TBL_JOIN_200 j
+on s.ARTISTID = j.JOIN_ID group by j.join_id, j.join_nm;
+
+--hy 대학 문제 
+
+select * from TBL_COURSE_300;
+select * from TBL_LECTURER_300;
+---
+select *
+from tbl_course_300 c
+join TBL_LECTURER_300 l 
+on c.TEACHER_ID= l.T_ID;
+
+select s_id AS 과목코드, 
+       s_name AS 과목명, 
+       s_grade AS 학점,
+       t_name AS 담당강사,
+case 
+when weekday ='M' then '월'
+when weekday ='TU' then '화'
+when weekday ='W' then '수'
+when weekday ='TH' then '목'
+when weekday ='F' then '금'
+END AS 요일
+,
+    substr(lpad(start_h, 4, '0'), 1, 2) || ':' ||
+    substr(lpad(start_h, 4, '0'), 3, 2) as 시작시간,
+    substr(lpad(end_h, 4, '0'), 1, 2) || ':' ||
+    substr(lpad(end_h, 4, '0'), 3, 2) as 종료시간
+    
+from tbl_course_300 c
+join TBL_LECTURER_300 l 
+on c.TEACHER_ID= l.T_ID;
+---
+
+
+
+-- 한양 cu 문제 
+
+select * from goods_tbl_500;
+select * from store_tbl_500;
+select * from sale_tbl_500;
+---
+select *
+  from sale_tbl_500 s
+  join store_tbl_500 t
+  on s.STORE_CD=t.STORE_cd;
+---
+select sale_no as 판매번호 ,
+       to_date('2020.12.10', 'YYYY.MM.DD') as 판매일자,
+       sale_fg as 판매구분,
+       t.store_cd as 점포코드,
+       goods_cd as 상품코드,
+       sale_cnt as 판매수량,
+       pay_type as 수취구분
+       
+  from sale_tbl_500 s
+  join store_tbl_500 t
+  on s.STORE_CD=t.STORE_cd;
+---------
+
+
+select * from goods_tbl_500;
+select * from store_tbl_500;
+select * from sale_tbl_500;
+
+select *
+ 
+
+from SALE_TBL_500 s
+join STORE_TBL_500 t
+on s.STORE_CD = t.STORE_CD
+join GOODS_TBL_500 g
+on s.goods_CD=g.GOODS_CD; 
+
+---
+select STORE_NM,
+nvl(sum(decode(pay_type , '01' , GOODS_PRICE * sale_cnt)),'0') as 현금매출,
+nvl(sum(decode(pay_type , '02' , GOODS_PRICE * sale_cnt)),'0') as 카드매출
+from SALE_TBL_500 s
+join STORE_TBL_500 t
+on s.STORE_CD = t.STORE_CD
+join GOODS_TBL_500 g
+on s.goods_CD=g.GOODS_CD
+group by STORE_NM;
+
+
+
+---
+select STORE_NM,
+nvl(sum(decode(pay_type , '01' , GOODS_PRICE * sale_cnt)),'0') as 현금매출,
+nvl(sum(decode(pay_type , '02' , GOODS_PRICE * sale_cnt)),'0') as 카드매출,
+sum(GOODS_PRICE * sale_cnt) as 총매출
+from SALE_TBL_500 s
+join STORE_TBL_500 t
+on s.STORE_CD = t.STORE_CD
+join GOODS_TBL_500 g
+on s.goods_CD=g.GOODS_CD group by STORE_NM;
+ 

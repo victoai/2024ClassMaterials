@@ -1,0 +1,50 @@
+1페이지
+
+--1.
+select * from member_tbl_11;
+--2.
+select m_name, m_birthday from member_tbl_11;
+--3.
+select * from member_tbl_11 where m_name = '박해수';
+--4.
+select m_name, m_tel from member_tbl_11 where m_point > 2000;
+--5.
+select m_name, m_tel from member_tbl_11 where m_point between 2000 and 3000;
+--6.
+select m_name, m_tel, m_point from member_tbl_11 where m_grade = '01';
+--7.
+select m_name, m_tel from member_tbl_11 where m_birthday > '2004/06/01';
+--8.
+select m_name, m_birthday from member_tbl_11 where m_birthday < '2004/05/01';
+--9.
+select m_name, m_tel, m_grade from member_tbl_11 where m_grade != '01';
+--10.
+select m_id, m_name, m_tel from member_tbl_11 where m_grade = '02';
+--11.
+select m_name, m_tel from member_tbl_11 where m_point < 1500;
+--12.
+select * from member_tbl_11 where m_point is null;
+--13.
+select * from member_tbl_11 where m_point is not null;
+--14.
+select distinct m_grade from member_tbl_11;
+
+
+2페이지
+
+--1.
+select m_id, m_name from member_tbl_11 where m_grade = '01' and m_point > 2000;
+--2.
+select m_id, m_name from member_tbl_11 where m_grade = '01' or m_point > 2000;
+--3.
+select m_id, m_name, m_grade from member_tbl_11 where m_name like '김%';
+--4.
+select m_id, m_name, m_grade from member_tbl_11 where m_name like '%수';
+--5.
+select m_id, m_name, m_grade from member_tbl_11 where m_grade in('01', '03');
+--6.
+select m_id, m_name, m_grade from member_tbl_11 where m_grade not in('01', '02');
+--7.
+select m_id, m_name, m_grade from member_tbl_11 where m_grade = '02' or m_name like '이%';
+--8.
+select m_id, m_name, m_birthday from member_tbl_11 where m_grade = '03' or m_birthday < '2004/05/01';

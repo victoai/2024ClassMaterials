@@ -1,0 +1,9 @@
+--p.120 q
+--1.
+select * from student;
+select name, jumin from student where deptno1 = '101';
+select name, jumin, decode(substr(jumin, 7, 1), '1', 'MAN', '2', 'WOMAN') as 성별 from student where deptno1 = '101';
+
+--2.
+select substr(tel, 1, instr(tel, ')')-1) from student;
+select name, tel, decode(substr(tel, 1, instr(tel, ')')-1), '02','SEOUL', '031', 'GYEONGGI', '051', 'BUSAN', '052', 'ULSAN', '055', 'GYEONGNAM') as LOC from student where deptno1 = '101';

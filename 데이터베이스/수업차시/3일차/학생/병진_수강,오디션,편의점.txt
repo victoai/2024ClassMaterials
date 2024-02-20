@@ -1,0 +1,115 @@
+select * from tbl_join_200;
+select * from tbl_mentor_200;
+select * from tbl_score_200;
+
+-- HY 오디션 관리 프로그램
+-- 참가자 조회 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+select join_id "참가자ID",
+join_nm "참가자이름", 
+to_char(to_date(birth),'yyyy"년"mm"월"dd"일"') "생년월일",
+decode(gender,'M','남','G','여') "성별",
+decode(specialty,'D','댄스','R','랩','V','보컬') "실력무대", 
+charm "매력무대"
+from tbl_join_200;
+
+-- 참가자 점수 조회 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+select * 
+from tbl_join_200 j
+join tbl_score_200 s
+on j.join_id = s.artistid;
+
+select score_no 계좌번호,
+j.join_id 참가자id,
+j.join_nm 참가자이름,
+to_char(to_date(j.birth),'yyyy"년"mm"월"dd"일"') "생년월일",
+s.score 점수,
+j.specialty 등급,
+m.mentor_nm 멘토이름
+from tbl_join_200 j
+join tbl_score_200 s
+on j.join_id = s.artistid
+join tbl_mentor_200 m
+on s.mentorid = m.mentor_id;
+
+select score_no 계좌번호,
+j.join_id 참가자id,
+j.join_nm 참가자이름,
+j.birth 생년월일,
+s.score 점수,
+case
+when s.score>=90 then 'A'
+when s.score>=80 then 'B'
+when s.score>=70 then 'C'
+else 'D'
+end 등급,
+m.mentor_nm 멘토이름
+from tbl_join_200 j
+join tbl_score_200 s
+on j.join_id = s.artistid
+join tbl_mentor_200 m
+on s.mentorid = m.mentor_id;
+
+-- 참가자 등수 조회 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+select * 
+from tbl_join_200 j
+join tbl_score_200 s
+on j.join_id = s.artistid;
+
+select s.ARTISTID 참가자id,
+j.join_nm 참가자이름,
+sum(s.SCORE) 종합점수,
+round(avg(s.SCORE),2) 평균점수,
+rank() over(order by round(avg(s.SCORE),2) desc) 순위
+from tbl_join_200 j
+join tbl_score_200 s
+on j.join_id = s.artistid
+group by s.ARTISTID,j.join_nm;
+
+-- HY대학교 수강신청 프로그램
+-- 참가자 조회 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+select * from tbl_course_300;
+select * from tbl_lecturer_300;
+
+select substr(s_id,3,2) from tbl_course_300;
+select to_char(t_id,'00') from tbl_lecturer_300;
+
+select *
+from tbl_course_300 c
+join tbl_lecturer_300 l
+on c.teacher_id = l.t_id;
+
+select c.s_id 과목코드,
+c.s_name 과목명,
+c.s_grade 학점,
+l.T_name 담당강사,
+decode(TRIM(c.weekday),'M','월','TU','화','W','수','TH','목','F','금') 요일,
+substr( lpad(c.start_h,4,0) ,1,2) ||':' || substr( lpad(c.start_h,4,0) ,3,2) 시작시간,
+to_char(to_date(c.end_h,'HH24MI'),'HH24:MI') 종료시간,
+decode('관리', '관리','수정/삭제') 관리
+from tbl_course_300 c
+join tbl_lecturer_300 l
+on c.teacher_id = l.t_id;
+
+-- 한양CU문제
+-- 참가자 조회 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+select * from goods_tbl_500;
+select * from store_tbl_500;
+select * from sale_tbl_500;
+
+select *
+from store_tbl_500 st
+join sale_tbl_500 sal
+on st.STORE_CD = sal.STORE_CD
+join goods_tbl_500 g
+on g.GOODS_CD = sal.GOODS_CD;
+
+select st.STORE_NM 점포명,
+nvl(sum(decode(sal.PAY_TYPE,'01',g.GOODS_PRICE)),0) 현금매출,
+nvl(sum(decode(sal.PAY_TYPE,'02',g.GOODS_PRICE)),0) 카드매출,
+nvl(sum(g.GOODS_PRICE),0) 총매출
+from store_tbl_500 st
+join sale_tbl_500 sal
+on st.STORE_CD = sal.STORE_CD
+join goods_tbl_500 g
+on g.GOODS_CD = sal.GOODS_CD
+group by st.STORE_NM;

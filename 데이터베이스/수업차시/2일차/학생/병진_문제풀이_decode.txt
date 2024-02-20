@@ -1,0 +1,7 @@
+--120p문제
+--select * from student;
+--1번
+select name,decode(substr(jumin,7,1),'1','남','2','여') as 성별 from student;
+--2번
+--select substr(tel,1,instr(tel, ')')-1) from student;
+select decode(substr(tel,1,instr(tel, ')')-1),'02','서울','031','경기','051','부산','052','울산','055','경남') from student where deptno1 = 101;

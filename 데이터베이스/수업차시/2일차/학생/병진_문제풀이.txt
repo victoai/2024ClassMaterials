@@ -1,0 +1,12 @@
+--79p
+select NAME, TEL,substr(TEL,1,instr(TEL,')',1)-1) from student where DEPTNO1 = 201;
+
+--84p
+--replace 1번
+select DISTINCT ename, replace(ename,substr(ename,2,2),'--') from emp where DEPTNO = 20;
+--replace 2번
+select NAME,JUMIN, replace(JUMIN,substr(JUMIN,-7,7),'-/-/-/-') from student where deptno1 = 101;
+--replace 3번
+select name,tel,replace(tel,substr(tel,5,3),'***') from student where deptno1 = 102;
+--replace 4번
+select name,tel,replace(tel,substr(tel,-4,4),'****') from student where deptno1 = 101;

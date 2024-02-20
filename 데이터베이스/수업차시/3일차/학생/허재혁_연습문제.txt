@@ -1,0 +1,45 @@
+--1
+select * from emp;
+select sal, comm from emp;
+select sal+ comm from emp;
+select max(sal+nvl(comm,0)), min(sal+nvl(comm,0)), round(avg(sal+(nvl(comm,0))),1) from emp;
+select nvl(comm,0) from emp;
+
+--2 
+select * from student;
+
+select to_char(birthday, 'mm') from student;
+select count(to_char(birthday, 'mm')) from student;
+
+select
+count(to_char(birthday, 'mm')) ||'EA' total,
+count(decode(to_char(birthday, 'mm'),'01',0))||'EA' jan,
+count(decode(to_char(birthday, 'mm'),'02',0))||'EA' feb,
+count(decode(to_char(birthday, 'mm'),'03',0))||'EA' mar,
+count(decode(to_char(birthday, 'mm'),'04',0))||'EA' apr,
+count(decode(to_char(birthday, 'mm'),'05',0))||'EA' may,
+count(decode(to_char(birthday, 'mm'),'06',0))||'EA' jun,
+count(decode(to_char(birthday, 'mm'),'07',0))||'EA' jul,
+count(decode(to_char(birthday, 'mm'),'08',0))||'EA' aug,
+count(decode(to_char(birthday, 'mm'),'09',0))||'EA' sep,
+count(decode(to_char(birthday, 'mm'),'10',0))||'EA' oct,
+count(decode(to_char(birthday, 'mm'),'11',0))||'EA' nov,
+count(decode(to_char(birthday, 'mm'),'12',0))||'EA' des
+
+from student;
+
+
+ --3
+ select * from student;
+
+select count(substr(tel,1,instr(tel, ')')-1)) total from student;
+
+select 
+count(substr(tel,1,instr(tel, ')')-1)) total,
+count(decode(substr(tel,1,instr(tel, ')')-1), '02',0)) seoul,
+count(decode(substr(tel,1,instr(tel, ')')-1), '031',0)) gyeonggi,
+count(decode(substr(tel,1,instr(tel, ')')-1), '051',0)) busan,
+count(decode(substr(tel,1,instr(tel, ')')-1), '052',0)) ulsan,
+count(decode(substr(tel,1,instr(tel, ')')-1), '053',0)) daegu,
+count(decode(substr(tel,1,instr(tel, ')')-1), '055',0)) gyeongnam
+from student;

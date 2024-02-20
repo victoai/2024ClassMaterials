@@ -1,0 +1,20 @@
+--1
+select * from student;
+
+select name, tel,substr( tel, 1, instr(tel, ')')-1) from student where deptno1=201;
+
+--2
+select * from emp;
+select distinct ename, replace(ename,substr(ename,2,2),'--') from emp where deptno = 20;
+
+--3
+select * from student;
+select name, jumin,replace(jumin, substr(jumin,7,8),'-/-/-/-')  from student where deptno1 = 101; 
+
+--4
+select * from student;
+select name, tel, replace(tel, substr(tel, 5,3),'***') from student where deptno1 =101;
+
+--5
+select * from student;
+select name, tel, replace(tel,substr(tel,9,4),'****') from student where deptno1 = 101;

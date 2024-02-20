@@ -1,0 +1,48 @@
+-- 첫 번째 문제
+--1
+select * from member_tbl_11;
+--2
+select M_NAME,M_BIRTHDAY from member_tbl_11;
+--3
+select M_ID,M_BIRTHDAY,m_point from member_tbl_11 where m_name = '박해수';
+--4
+select m_name,m_tel from member_tbl_11 where m_point >=2000;
+--5
+SELECT m_name,m_tel from member_tbl_11 where m_point BETWEEN 2000 and 3000;
+SELECT m_name,m_tel from member_tbl_11 where m_point >=2000 and m_point <=3000;
+--6
+SELECT m_name,m_tel,m_point from member_tbl_11 where m_grade = '01';
+--7
+select m_name,m_tel from member_tbl_11 where M_BIRTHDAY >= '04/06/01';
+--8
+select m_name,M_BIRTHDAY from member_tbl_11 where M_BIRTHDAY <= '04/05/01';
+--9
+SELECT m_name,m_tel,m_grade from member_tbl_11 where m_grade != '01';
+--10
+SELECT m_name,m_tel,M_ID from member_tbl_11 where m_grade = '02';
+--11
+select m_name,m_tel from member_tbl_11 where m_point <1500;
+--12
+select * from MEMBER_TBL_11 where m_point is null;
+--13
+select * from MEMBER_TBL_11 where m_point is not null;
+--14
+select DISTINCT m_grade from  MEMBER_TBL_11;
+
+--두 번째 문제
+--1
+SELECT m_id,m_name from MEMBER_TBL_11 where m_grade = '01' and m_point >= 2000;
+--2
+SELECT m_id,m_name from MEMBER_TBL_11 where m_grade = '01' or m_point >= 2000;
+--3
+SELECT m_id,m_name,m_grade from MEMBER_TBL_11 where m_name like '김%';
+--4
+SELECT m_id,m_name,m_grade from MEMBER_TBL_11 where  m_name like '%수';
+--5
+SELECT m_id,m_name,m_grade from MEMBER_TBL_11 where m_grade in (01,03);
+--6
+SELECT m_id,m_name,m_grade from MEMBER_TBL_11 where m_grade not in (01,03);
+--7
+SELECT  m_id,m_name,m_grade from MEMBER_TBL_11 where m_grade = 02 or M_NAME like '이%';
+--8
+SELECT  m_id,m_name,M_BIRTHDAY from MEMBER_TBL_11 where M_BIRTHDAY <= '04/05/01' or m_grade = 03;

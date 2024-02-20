@@ -1,0 +1,29 @@
+
+select * from emp;
+select deptno, job, sal from emp;
+select deptno, decode( job , 'CLERK', sal)  
+from emp;
+
+select   decode( job , 'CLERK', sal) ,
+         decode( job , 'MANAGER' ,sal),
+         decode( job, 'PRESIDENT', sal)
+from emp;
+--
+select    sum(decode( job , 'CLERK', sal)) CLERK ,
+          sum(decode( job , 'MANAGER' ,sal))  MNANAGER,
+          sum(decode( job, 'PRESIDENT', sal)) PRESIDENT
+from emp;
+
+select  deptno,  sum(decode( job , 'CLERK', sal)) CLERK ,
+          sum(decode( job , 'MANAGER' ,sal))  MNANAGER,
+          sum(decode( job, 'PRESIDENT', sal)) PRESIDENT
+from emp
+group by deptno;
+
+--
+select  deptno, 
+          nvl(sum(decode( job , 'CLERK', sal)),0) CLERK ,
+          nvl(sum(decode( job , 'MANAGER' ,sal)) ,0) MNANAGER,
+          nvl(sum(decode( job, 'PRESIDENT', sal)) ,0) PRESIDENT
+from emp
+group by deptno;

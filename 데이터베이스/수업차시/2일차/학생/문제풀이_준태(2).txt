@@ -1,0 +1,4 @@
+1.
+select jumin, decode(SUBSTR(JUMIN,7,1),'1','MAN','2','WOMAN') Gender from STUDENT;
+2.
+select name, tel,decode(substr(tel,1,instr(tel,')')-1),'02','SEOUL','031','GYEONGGI','051','BUSAN','052','ULSAN','055','GYEONGNAM') as LOC from STUDENT where deptno1 = 101;

@@ -1,0 +1,146 @@
+
+select * from MEMBER_TBL_11;
+--문제1
+select M_grade from MEMBER_TBL_11;
+--문제2
+select distinct m_grade from MEMBER_TBL_11;
+
+--문제3
+select * from MEMBER_TBL_11;
+select m_id as userid from MEMBER_TBL_11;
+
+--문제4
+select m_name ||'님' from MEMBER_TBL_11;
+
+--문제1 뒷번호 7자리 추출 젠더
+
+select * from CUST_INFO;
+select id ,  decode(substr(id, 7,1) ,'1', 'Man', '2','Woman') "GENDER"  from CUST_INFO;
+
+--문제2 
+
+select * from CUST_INFO;
+select id, first_nm , lower(last_nm) from CUST_INFO;
+
+--문제3
+
+select * from CUST_INFO;
+
+select last_nm || ',' || first_nm as name from CUST_INFO;
+
+
+--문제4
+select * from CUST_INFO;
+--select round(987.655,2) from dual;
+select id ,round(annl_perf, 1) from cust_info;
+
+--문제5 select trunc(987.655,-1) from dual;
+select annl_perf, id ,trunc(annl_perf , -0) from cust_info;
+
+
+--날짜
+
+SELECT SYSDATE FROM DUAL;
+
+--조건식
+
+select * from CUST_INFO;
+
+select id , case
+  when annl_perf >=300 then '고수익'
+  when annl_perf >=100 then '일반수익'
+  when annl_perf <=0 then '손해'
+    else '변동없음'
+   end as "result"
+   from CUST_INFO;
+
+--기타함수
+
+select * from MEMBER_TBL_11;
+
+select M_name, nvl(M_point, 0) from MEMBER_TBL_11;
+
+-- nv2함수
+
+select * from MEMBER_TBL_11;
+
+select M_name, nvl2(M_point, (m_point+100) , 0) from MEMBER_TBL_11;
+
+
+
+
+--문제1
+
+select * from STUD_SCORE;
+select count(*) from STUD_SCORE;
+
+--문제2
+
+select count(music_score) from STUD_SCORE;
+
+--문제3
+
+select sum(math_score) from STUD_SCORE;
+
+--문제4
+
+select avg(music_score) from STUD_SCORE;
+
+--문제5
+
+select max(math_score), min(math_score)  from STUD_SCORE;
+
+
+
+
+--문제6
+
+select * from STAFF_SAL ;
+
+select job , current_sal from STAFF_SAL ;
+select job , 
+case 
+when job = 'CLERK' then current_sal*1.07
+when job = 'OFFICER' tHEN current_sal*1.05
+when job = 'MANAGER' THEN current_sal*1.03
+end as "pay"
+from STAFF_SAL ;
+
+--문제1
+select * FROM PRC;
+
+SELECT SET2 , AVG(ANNL_REV)
+FROM PRC
+group by SET2;
+
+--문제2
+
+select * FROM PRC;
+
+SELECT SET2 , COUNT(SET2)
+FROM PRC
+GROUP BY SET2;
+
+
+--문제3
+select * FROM prod_sales;
+
+select cust_nm ,count(cust_nm)  
+from prod_sales
+group by cust_nm;
+
+select cust_nm ,count(cust_nm)  
+from prod_sales
+group by cust_nm
+having count(cust_nm)>1;
+
+--문제4
+select * FROM prod_sales;
+
+select cust_nm , sales_amt FROM prod_sales;
+
+select cust_nm , sum(sales_amt)
+FROM prod_sales
+group by cust_nm
+having sum(sales_amt)>=70000;
+

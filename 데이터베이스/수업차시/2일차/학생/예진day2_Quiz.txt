@@ -1,0 +1,28 @@
+--Quiz
+select * from emp;
+select substr(ename,2,2)from emp; 
+select ename,replace(ename,substr(ename,2,2),'--')  replace from emp;
+
+--Quiz2
+select * from student;
+select substr(jumin,7,7) from student;
+select name,jumin, replace(JUMIN,substr(JUMIN,7,7),'-/-/-/-')  replace from student where DEPTNO1  = 101;
+
+--Quiz3
+select * from student;
+select NAME,TEL, replace(tel,substr(tel,5,3),'***' ) replace  from student where DEPTNO1=102;
+
+--Quiz4
+select NAME,TEL, replace(tel,substr(tel,9,4),'****') replace from student where DEPTNO1=101;
+
+--79p Quiz5
+select NAME, TEL, substr(tel, 1,instr(tel,')')-1)  "AREA CODE" from student where deptno1='201';
+
+
+
+--120p Quiz
+select substr(jumin,7,1) from student;
+select NAME,JUMIN,decode(substr(jumin,7,1),'1','MAN','2','WOMAN') Gender from student where DEPTNO1=101;
+
+--Quiz2
+select NAME,TEL,decode(substr(tel, 1,instr(tel,')')-1),'02','SEOUL','031','GYEONGGI','051','BUSAN','052','ULSAN','055','GYEONGNAM')LOC from student where DEPTNO1=101;

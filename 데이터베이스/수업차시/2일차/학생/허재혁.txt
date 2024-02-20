@@ -1,0 +1,15 @@
+--SUBSR/INSTR퀴즈
+select * from student;
+select name, tel, substr(tel,1,instr(tel,')')-1) as "AREA CODE"  from student where deptno1 = 201;
+--REPLACE 퀴즈1
+select * from emp;
+select ename, replace(ename, substr(ename,2,2), '--') from emp where deptno = 20;
+--REPLACE 퀴즈2
+select * from student;
+select name , jumin, replace(jumin, substr(jumin,7,7),'-/-/-/-/') from student where deptno1 =101 ;
+--REPLACE 퀴즈3
+select * from student;
+select name, tel , replace(tel , substr(tel,5,3),'***') from student where deptno1 = 102;
+--REPLACE 퀴즈4
+select * from student;
+select name, tel , replace(tel, substr(tel,9,5),'****') from student where deptno1 = 101;

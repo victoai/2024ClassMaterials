@@ -1,0 +1,6 @@
+--120p 퀴즈
+-- 1.
+select * from student;
+select name, jumin, decode(substr(jumin,7,1),'1','MAN','2','WOMAN') Gender from student where deptno1 = 101;
+-- 2.
+select name, tel, decode(substr(tel,1,instr(tel,')')-1),'02','SEOUL','031','GYRONGGI','052','ULSAN','055','GYEONGNAM') LOC from student where deptno1 = 101;

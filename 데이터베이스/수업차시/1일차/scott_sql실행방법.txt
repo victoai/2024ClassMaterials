@@ -1,0 +1,12 @@
+c:>sqlplus  system/1234 
+sql>@C:\oraclexe\app\oracle\product\11.2.0\server\rdbms\admin\scott.sql
+sql>alter user scott identified by tiger;
+sql>exit;
+
+
+CREATE USER 사용자명 IDENTIFIED BY 비밀번호;
+GRANT DBA TO 사용자명;
+
+
+
+c:> sqlplus scott/tiger             => scott사용자로 로그인

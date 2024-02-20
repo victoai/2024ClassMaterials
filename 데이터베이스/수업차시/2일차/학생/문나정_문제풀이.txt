@@ -1,0 +1,8 @@
+-- 84,85
+select ename, replace(ename, substr(ename,2,2),'--') as REPLACE from emp;
+select name, jumin, replace(jumin,substr(jumin,7),'-/-/-/-') as REPLACE from student;
+select name, tel, replace(tel,substr(tel,5,3),'***') as REPLACE from student where deptno1='102';
+select name, tel, replace(tel,substr(tel,9),'****') as REPLACE from student where deptno1='101';
+
+--79
+select name, tel, substr(tel, 1,instr(tel,')')-1)  as "AREA CODE" from student where deptno1='201';

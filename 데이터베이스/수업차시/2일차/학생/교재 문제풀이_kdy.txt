@@ -1,0 +1,17 @@
+--p.79 q
+select * from student;
+select name, tel, substr(tel, 1, instr(tel, ')')-1) as "AREA CODE" from student where deptno1 = 201;
+
+--p.84 q
+--1.
+select * from emp;
+select ename, replace(ename, substr(ename, 2, 2), '--') "replace" from emp where deptno = 20;
+
+--2. 
+select name, jumin, replace(jumin, substr(jumin, 7), '-/-/-/-') as replace from student;
+
+--3.
+select name, tel, replace(tel, substr(tel, 5, 3), '***') as replace from student where deptno1 = 102;
+
+--4. 
+select name, tel, replace(tel, substr(tel, 9), '****') as replace from student where deptno1 = 101;

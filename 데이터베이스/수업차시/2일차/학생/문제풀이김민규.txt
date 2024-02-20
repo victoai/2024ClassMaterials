@@ -1,0 +1,24 @@
+--79p 1번 
+select * from student ;
+
+select name , tel, substr(tel,1 , instr(tel, ')')-1) from student where deptno1 = 201;
+
+--84p 1 번 2~3글자만 -으로 변경해서 출력
+
+select   replace(ename ,substr(ename,2,3 ), '--') from emp where deptno= 20;
+
+--2번 student테이블 1전공 101번인 학생들의 이름과 주민번호뒷자리ㄴ는 -/로
+
+select * from student ;
+select * from student where deptno1 = 101; 
+select name , jumin, replace (jumin , substr(jumin,7,8 ) , '-/-/-/-') from student;
+
+--3번 studetn테이블에서 1전공이 102번에서 전화번호 국번만 ***처리
+select * from student ;
+select * from student where deptno1 = 102; 
+
+select name , tel  from student where deptno1 = 102;
+ select name , tel , replace(tel , substr(tel ,5,3) , '***'  ) from student where deptno1 = 102;
+
+--4번 deptno1 이 101번의 학생과 국번뺀 나머지번호 ***
+select name , tel , replace(tel , substr(tel ,9,7) , '****'  ) from student where deptno1 = 101;

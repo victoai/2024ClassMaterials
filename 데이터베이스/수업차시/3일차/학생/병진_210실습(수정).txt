@@ -1,0 +1,46 @@
+-- p210 문제 풀기 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+--1번
+select * from emp;
+
+select 
+max(sal+decode(comm, null, 0, comm)) max, 
+min(sal+decode(comm, null, 0, comm)) min, 
+round(avg(sal+decode(comm, null, 0, comm)),1) avg
+from emp;
+
+--2번
+select * from student;
+
+select to_char(birthday,'mm') from student;
+select count(to_char(birthday,'mm')) total from student;
+
+select 
+count(to_char(birthday,'mm')) total,
+count(decode(to_char(birthday,'mm'),'01',0)) jan,
+count(decode(to_char(birthday,'mm'),'02',0)) feb,
+count(decode(to_char(birthday,'mm'),'03',0)) mar,
+count(decode(to_char(birthday,'mm'),'04',0)) arp, 
+count(decode(to_char(birthday,'mm'),'05',0)) may, 
+count(decode(to_char(birthday,'mm'),'06',0)) jun, 
+count(decode(to_char(birthday,'mm'),'07',0)) jul, 
+count(decode(to_char(birthday,'mm'),'08',0)) aug, 
+count(decode(to_char(birthday,'mm'),'09',0)) sep, 
+count(decode(to_char(birthday,'mm'),'10',0)) oct, 
+count(decode(to_char(birthday,'mm'),'11',0)) nov, 
+count(decode(to_char(birthday,'mm'),'12',0)) dec 
+from student;
+
+--3번
+select * from student;
+
+select count(substr(tel,1,instr(tel, ')')-1)) total from student;
+
+select 
+count(substr(tel,1,instr(tel, ')')-1)) total,
+count(decode(substr(tel,1,instr(tel, ')')-1), '02',0)) seoul,
+count(decode(substr(tel,1,instr(tel, ')')-1), '031',0)) gyeonggi,
+count(decode(substr(tel,1,instr(tel, ')')-1), '051',0)) busan,
+count(decode(substr(tel,1,instr(tel, ')')-1), '052',0)) ulsan,
+count(decode(substr(tel,1,instr(tel, ')')-1), '053',0)) daegu,
+count(decode(substr(tel,1,instr(tel, ')')-1), '055',0)) gyeongnam
+from student;

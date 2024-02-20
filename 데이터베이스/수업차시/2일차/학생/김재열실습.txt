@@ -1,0 +1,125 @@
+--1
+select * from member_tbl_11;
+select m_grade from member_tbl_11;
+
+--2
+select * from member_tbl_11;
+select distinct m_grade from member_tbl_11;
+
+--3
+select * from member_tbl_11;
+select m_id as userid from  member_tbl_11;
+
+
+--4
+select m_name|| '님' from  member_tbl_11;
+
+CREATE TABLE CUST_INFO(
+ ID VARCHAR2(13) NOT NULL PRIMARY KEY , FIRST_NM VARCHAR2(10) , LAST_NM VARCHAR2(10) , ANNL_PERF NUMBER(10,2) 
+);
+COMMIT;
+
+INSERT INTO CUST_INFO VALUES ('8301111567897' , 'JHUN' , 'KIM', 330.08);
+INSERT INTO CUST_INFO VALUES ('9302112567897' , 'JINYOUNG' , 'LEE', 857.61);
+INSERT INTO CUST_INFO VALUES ('8801111567897' , 'MIJA' , 'HAN', -76.77);
+INSERT INTO CUST_INFO VALUES ('9901111567897' , 'YOUNGJUN' , 'HA', 468.54);
+INSERT INTO CUST_INFO VALUES ('9801112567897' , 'DAYOUNG' , 'SUNG', -890);
+INSERT INTO CUST_INFO VALUES ('9701111567897' , 'HYEJIN' , 'SEO', 47.44);
+COMMIT;
+
+
+--5
+select * from CUST_INFO;
+select id,decode(SUBSTR(id,7,1), '1','MAN','2', 'WOMEN') as gender from cust_info;
+
+--6
+select * from CUST_INFO;
+select id, lower(last_nm) from CUST_INFO;
+
+--7
+select * from CUST_INFO;
+select last_nm|| ','|| first_nm as name from CUST_INFO;
+
+--8
+select * from CUST_INFO;
+select id, round(annl_perf,1) from cust_info;
+
+--9
+select * from CUST_INFO;
+select annl_perf, trunc(annl_perf,0)  from cust_info;
+select id, ceil(annl_perf) from cust_info;
+
+--10
+select sysdate from dual;
+
+--11
+select * from CUST_INFO;
+select id, case
+           when annl_perf >= 300 then '고수익'
+           when annl_perf >= 100 then '일반수익'
+           when annl_perf <=0 then '손해'
+           else '변동없음'
+           end as result from CUST_INFO;
+
+--12
+select * from member_tbl_11;
+select m_name, nvl(m_point,0) from member_tbl_11;
+
+--13
+select * from member_tbl_11;
+select m_id, m_point, nvl2(m_point, m_point+100, 0) as next_point from member_tbl_11; 
+
+--14
+select * from stud_score;
+select count(*) from stud_score;
+
+--15
+select * from stud_score;
+select count(music_score) from stud_score;
+
+--16
+select * from stud_score;
+select sum(math_score) from stud_score;
+
+--17
+select * from stud_score;
+select avg(music_score) from stud_score;
+
+--18
+select max(math_score), min(math_score) from stud_score;
+
+--19
+select * from staff_sal;
+select job, case when job = 'CLERK' then current_sal * 1.03
+                 when job = 'OFFICER' then current_sal * 1.05
+                 else current_sal * 1.03
+                 end as newcurrent_sal from staff_sal;
+            
+              
+               
+--20
+select * from prc;
+select set2, avg(annl_rev) as average
+from prc 
+group by set2;
+
+--21
+select * from prc;
+select set2, count(set2)
+from prc
+group by set2;
+
+--22
+select * from prod_sales;
+select cust_nm, prd_id from prod_sales;
+
+select cust_nm ,count(prd_id) 
+from prod_sales
+group by cust_nm
+having count(prd_id) > 1;
+
+--23
+select cust_nm ,sum(sales_amt)
+from prod_sales
+group by cust_nm
+having sum(sales_amt) >= 70000; 

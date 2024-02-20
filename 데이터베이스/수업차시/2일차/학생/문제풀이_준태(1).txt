@@ -1,0 +1,12 @@
+--문제 풀이
+--79p
+select name, tel, substr(tel, 1,instr(tel,')')-1)  as "AREA CODE" from student where deptno1='201';
+--84p
+--1
+select  replace( ename,  substr(ename, 2,2) ,'--') from emp  where deptno=20; 
+--2
+select name,jumin, replace( jumin, substr(jumin,7,7) ,'-/-/-/-') from student;
+--3
+select name, tel,replace (tel,substr(tel,5,3) ,'***') from STUDENT where DEPTNO1 = 102;
+--4
+select name, tel,replace (tel,substr(tel,instr (tel,'-')+1,4) ,'****') from STUDENT where DEPTNO1 = 101;

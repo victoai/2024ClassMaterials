@@ -1,0 +1,43 @@
+--Quiz1
+select max( sal+nvl(comm,0)),min(sal+nvl(comm,0)), round(avg( sal+nvl(comm,0)),1) from emp;
+
+--Quiz2
+
+select   
+         count(birthday)||'EA'"TOTAL",
+         count(decode(substr( birthday, 4,2),'01', 1))||'EA' "JAN"  ,
+         count(decode(substr( birthday, 4,2),'02', 1))||'EA' "FEB" ,
+         count(decode(substr( birthday, 4,2),'03', 1))||'EA' "MAR",
+         count(decode(substr( birthday, 4,2),'04', 1))||'EA' "APR",
+         count(decode(substr( birthday, 4,2),'05', 1))||'EA' "MAY",
+         count(decode(substr( birthday, 4,2),'06', 1))||'EA' "JUN",
+         count(decode(substr( birthday, 4,2),'07', 1))||'EA' "JUL",
+         count(decode(substr( birthday, 4,2),'08', 1))||'EA' "AUG",
+         count(decode(substr( birthday, 4,2),'09', 1))||'EA' "SEP",
+         count(decode(substr( birthday, 4,2),'10', 1))||'EA' "OCT",
+         count(decode(substr( birthday, 4,2),'11', 1))||'EA' "NOV",
+         count(decode(substr( birthday, 4,2),'12', 1))||'EA' "DEC"
+ from student;
+
+--Quiz3
+ select * from student;
+ select 
+        count(tel)"TOTAL",
+        count(decode(substr(tel,1,instr(tel,')')-1),'02','SEOUL')) "SEOUL",
+        count(decode(substr(tel,1,instr(tel,')')-1),'031','GYEONGGI')) "GYEONGGI",
+        count(decode(substr(tel,1,instr(tel,')')-1),'051','BUSAN')) "BUSAN",
+        count(decode(substr(tel,1,instr(tel,')')-1),'052','ULSAN')) "ULSAN",
+        count(decode(substr(tel,1,instr(tel,')')-1),'053','DAEGU')) "DAEGU",
+        count(decode(substr(tel,1,instr(tel,')')-1),'055','GYEONGNAM')) "GYEONGNAM"
+        from student;
+
+--Quiz4
+
+elect decode(DEPTNO,null,' ',deptno)DEPTNO,
+nvl(sum(decode(job,'CLERK',sal)),0)"CLERK", 
+nvl(sum(decode(job,'MANAGER',sal)),0)"MANAGER",
+nvl(sum(decode(job,'PRESIDENT',sal)),0)"PRESIDENT",
+nvl(sum(decode(job,'ANALYST',sal)),0)"ANALYST",
+nvl(sum(decode(job,'SALESMAN',sal)),0)"SALESMAN",
+sum(sal)-nvl(sum(decode(job,null,sal)),0)TOTAL
+from emp group by rollup(DEPTNO);

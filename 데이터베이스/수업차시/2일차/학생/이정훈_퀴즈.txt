@@ -1,0 +1,24 @@
+--79p 퀴즈
+
+select* from student;
+select name, tel, substr(tel, 1,2) as  "area code" from student where deptno1 =201;
+select name, tel, substr(tel, 1,  instr( tel, ')')-1 ) as  "area code" from student where deptno1 =201;
+
+-- 85p 퀴즈
+
+-- 1.
+select * from emp;
+
+select ename ,replace(ename,substr(ename,2,2), '--') as REPLACE from emp;
+
+-- 2.
+select* from student;
+select name,jumin , replace(jumin,substr(jumin,-7,7),'-/-/-/-') as REPLACE from student where deptno1 = 101;
+
+-- 3.
+select* from student;
+select name, tel, replace(tel,substr(tel, instr(tel,')')+1, 3), '***') as REPLACE from student where deptno1 = 102;
+
+-- 4. 
+select* from student;
+select name, tel, replace(tel,substr(tel, instr(tel,'-')+1, 4), '****') as REPLACE from student where deptno1 = 101;

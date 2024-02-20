@@ -1,0 +1,8 @@
+오라클 사이트에서 19c 다운로드 받기
+[링크]
+
+https://www.oracle.com/kr/database/technologies/oracle19c-windows-downloads.html
+
+설치시 주의사항
+!! 컨테이너 데이터베이스로 생성  체크 반드시 풀기
+전역데이터베이스이름 : testdb로 생성하기

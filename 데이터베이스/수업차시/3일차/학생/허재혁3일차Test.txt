@@ -1,0 +1,100 @@
+--1-1
+select * from tbl_join_200;
+select JOIN_ID 참가자ID, JOIN_NM 참가자이름,
+to_char(to_date(birth),'yyyy"년"mm"월"dd"일"') 생년월일 ,
+decode(gender, 'M','남성','W','여성') 성별,
+decode(specialty, 'D','댄스','R','랩','V','보컬') 실력무대,
+charm 매력무대
+from TBL_JOIN_200;
+
+--2-2
+select *
+from tbl_score_200 s
+join tbl_join_200  j
+on j.JOIN_ID=s.ARTISTID
+join tbl_mentor_200 m
+on s.MENTORID=m.MENTOR_ID;
+
+
+select s.SCORE_NO 계좌번호, j.JOIN_ID 참가자ID,j.JOIN_NM 참가자이름,
+to_char(to_date(j.BIRTH), 'yyyy"년"mm"월"dd"일"') 생년월일,
+s.SCORE 점수,
+s.SCORE, case
+when s.SCORE >=90 then 'A'
+when s.SCORE >=80 then 'B'
+when s.SCORE >=70 then 'C'
+else 'D'
+end 등급,
+m.MENTOR_NM 멘토이름
+from tbl_score_200 s
+join tbl_join_200  j
+on j.JOIN_ID=s.ARTISTID
+join tbl_mentor_200 m
+on s.MENTORID=m.MENTOR_ID;
+
+--3-3
+select * from tbl_join_200;
+select * from TBL_SCORE_200;
+
+select * 
+from TBL_SCORE_200 s
+join TBL_JOIN_200 j
+on s.ARTISTID=j.JOIN_ID;
+
+select j.JOIN_ID 참가자ID,j.JOIN_NM 참가자이름,
+sum(s.SCORE)종합점수,
+round(avg(s.SCORE),2)평균점수,
+rank() over(order by (avg(s.SCORE))desc)순위
+from TBL_SCORE_200 s
+join TBL_JOIN_200 j
+on s.ARTISTID=j.JOIN_ID 
+group by j.JOIN_ID, j.JOIN_NM;
+
+--2-1
+select * from TBL_COURSE_300;
+select * from TBL_LECTURER_300;
+
+select *
+from TBL_COURSE_300 c
+join TBL_LECTURER_300 l
+on c.TEACHER_ID = l.T_ID;
+
+select s_id 과목코드, s_name 과목명, s_grade 학점, t_name 담당강사,
+case 
+when c.WEEKDAY ='M' then '월'
+when c.WEEKDAY ='TU' then '화'
+when c.WEEKDAY ='W' then '수'
+when c.WEEKDAY ='TH' then '목'
+when c.WEEKDAY ='F' then '금'
+end 요일,
+substr(lpad(c.START_H, 4,0) , 1,2) || ':' || substr(lpad(c.START_H, 4,0) , 3,2) 시작시간,
+substr(lpad(c.end_H, 4,0) , 1,2) || ':' || substr(lpad(c.END_H, 4,0) , 3,2) 종료시간
+from TBL_COURSE_300 c
+join TBL_LECTURER_300 l
+on c.TEACHER_ID = l.T_ID;
+
+
+--3
+select * from  goods_tbl_500;
+select * from store_tbl_500;
+select * from sale_tbl_500;
+
+select * 
+from SALE_TBL_500 sale
+join store_tbl_500 store
+on sale.STORE_CD=store.STORE_CD
+join goods_tbl_500 goods
+on sale.GOODS_CD= goods.GOODS_CD;
+
+select store_nm, 
+
+nvl(sum(decode(pay_type,'01',(sale.SALE_CNT*goods.goods_price))),0) 현금매출,
+nvl(sum(decode(pay_type,'02',(sale.SALE_CNT*goods.goods_price))),0) 카드매출,
+sum(sale.SALE_CNT*goods.goods_price) 총매출
+
+from SALE_TBL_500 sale
+join store_tbl_500 store
+on sale.STORE_CD=store.STORE_CD
+join goods_tbl_500 goods
+on sale.GOODS_CD= goods.GOODS_CD
+group by store_nm;

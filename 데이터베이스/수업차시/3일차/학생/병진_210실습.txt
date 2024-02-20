@@ -1,0 +1,46 @@
+-- p210 문제 풀기 ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+--1번
+select * from emp;
+
+select 
+max(sal+decode(comm, null, 0, comm)) max, 
+min(sal+decode(comm, null, 0, comm)) min, 
+round(avg(sal+decode(comm, null, 0, comm)),1) avg
+from emp;
+
+--2번
+select * from student;
+
+select to_char(birthday,'mm') from student;
+select count(to_char(birthday,'mm')) total from student;
+
+select 
+count(to_char(birthday,'mm')) total,
+count(decode(to_char(birthday,'mm'),'01',to_char(birthday,'mm'))) jan,
+count(decode(to_char(birthday,'mm'),'02',to_char(birthday,'mm'))) feb,
+count(decode(to_char(birthday,'mm'),'03',to_char(birthday,'mm'))) mar,
+count(decode(to_char(birthday,'mm'),'04',to_char(birthday,'mm'))) arp, 
+count(decode(to_char(birthday,'mm'),'05',to_char(birthday,'mm'))) may, 
+count(decode(to_char(birthday,'mm'),'06',to_char(birthday,'mm'))) jun, 
+count(decode(to_char(birthday,'mm'),'07',to_char(birthday,'mm'))) jul, 
+count(decode(to_char(birthday,'mm'),'08',to_char(birthday,'mm'))) aug, 
+count(decode(to_char(birthday,'mm'),'09',to_char(birthday,'mm'))) sep, 
+count(decode(to_char(birthday,'mm'),'10',to_char(birthday,'mm'))) oct, 
+count(decode(to_char(birthday,'mm'),'11',to_char(birthday,'mm'))) nov, 
+count(decode(to_char(birthday,'mm'),'12',to_char(birthday,'mm'))) dec 
+from student;
+
+--3번
+select * from student;
+
+select count(substr(tel,1,instr(tel, ')')-1)) total from student;
+
+select 
+count(substr(tel,1,instr(tel, ')')-1)) total,
+count(decode(substr(tel,1,instr(tel, ')')-1), '02',substr(tel,1,instr(tel, ')')-1))) seoul,
+count(decode(substr(tel,1,instr(tel, ')')-1), '031',substr(tel,1,instr(tel, ')')-1))) gyeonggi,
+count(decode(substr(tel,1,instr(tel, ')')-1), '051',substr(tel,1,instr(tel, ')')-1))) busan,
+count(decode(substr(tel,1,instr(tel, ')')-1), '052',substr(tel,1,instr(tel, ')')-1))) ulsan,
+count(decode(substr(tel,1,instr(tel, ')')-1), '053',substr(tel,1,instr(tel, ')')-1))) daegu,
+count(decode(substr(tel,1,instr(tel, ')')-1), '055',substr(tel,1,instr(tel, ')')-1))) gyeongnam
+from student;

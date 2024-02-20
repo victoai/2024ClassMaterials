@@ -1,0 +1,41 @@
+-- p.210 1번
+select max(sal+nvl(comm,0)) as MAX , min(sal+nvl(comm,0)) as MIN, trunc(avg(sal+nvl(comm,0)),1) as AVG
+from emp;
+-- p.210 2번
+select 
+           count(birthday)||'EA' TOTAL,
+           count(decode(substr(birthday,4,2),'01',substr(birthday,4,2))) ||'EA' "JAN",
+           count(decode(substr(birthday,4,2),'02',substr(birthday,4,2))) ||'EA' "FEB",
+           count(decode(substr(birthday,4,2),'03',substr(birthday,4,2))) ||'EA' "MAR",
+           count(decode(substr(birthday,4,2),'04',substr(birthday,4,2))) ||'EA' "APR",
+           count(decode(substr(birthday,4,2),'05',substr(birthday,4,2))) ||'EA' "MAY",
+           count(decode(substr(birthday,4,2),'06',substr(birthday,4,2))) ||'EA' "JUN",
+           count(decode(substr(birthday,4,2),'07',substr(birthday,4,2))) ||'EA' "JUL",
+           count(decode(substr(birthday,4,2),'08',substr(birthday,4,2))) ||'EA' "AUG",
+           count(decode(substr(birthday,4,2),'09',substr(birthday,4,2))) ||'EA' "SEP",
+           count(decode(substr(birthday,4,2),'10',substr(birthday,4,2))) ||'EA' "OCT",
+           count(decode(substr(birthday,4,2),'11',substr(birthday,4,2))) ||'EA' "NOV",
+           count(decode(substr(birthday,4,2),'12',substr(birthday,4,2))) ||'EA' "DEC"
+from student;
+-- p.210 3번
+select
+         count(tel) TOTAL,
+         count(decode(substr(tel, 1,instr(tel,')')-1),'02',substr(tel, 1,instr(tel,')')-1))) "SEOUL",
+         count(decode(substr(tel, 1,instr(tel,')')-1),'031',substr(tel, 1,instr(tel,')')-1))) "GYEONGGI",
+         count(decode(substr(tel, 1,instr(tel,')')-1),'051',substr(tel, 1,instr(tel,')')-1))) "BUSAN",
+         count(decode(substr(tel, 1,instr(tel,')')-1),'052',substr(tel, 1,instr(tel,')')-1))) "ULSAN",
+         count(decode(substr(tel, 1,instr(tel,')')-1),'053',substr(tel, 1,instr(tel,')')-1))) "DAEGU",
+         count(decode(substr(tel, 1,instr(tel,')')-1),'055',substr(tel, 1,instr(tel,')')-1))) "GYEONGNAM"
+from student;
+
+-- p.210 4번
+
+select decode(deptno, null,' ' ,deptno) as DEPTNO, 
+            nvl(sum(decode(job,'CLERK' , sal)),0) clerk,
+            nvl(sum(decode(job, 'MANAGER', sal)),0)manager,
+            nvl(sum(decode(job,'PRESIDENT',sal)),0) president,
+            nvl(sum(decode(job, 'ANALYST', sal)),0) analyst,
+            nvl(sum(decode(job,'SALESMAN', sal)),0) salesman,
+            sum(sal)-nvl(sum(decode(job,null,sal)),0) total 
+from emp
+group by rollup(deptno);

@@ -1,0 +1,8 @@
+
+
+select  사원번호, 사원명, 입사일자, 매니저사원번호 
+from  사원
+start with   매니저사원번호  is null
+connect by prior   사원번호 = 매니저사원번호
+and 입사일자  between '2013-01-01' and  '2013-12-31'
+order siblinges by 사원번호;
