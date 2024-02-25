@@ -1,0 +1,23 @@
+
+
+
+-- 메뉴별  , 직원별  수량
+-- pivot 
+select * from  STARBUCKS_ORDER;
+
+
+select * from (  select   reg_name,  order_item   from STARBUCKS_ORDER) 
+pivot(
+ count(*) for reg_name in( '릴리'   , '봄'   ,'테스' , '무드' ,'마샤' ) 
+); 
+
+
+
+select * from (  select   reg_name,  order_item   from STARBUCKS_ORDER) 
+pivot(
+ count(*) for order_item in( '카페라떼'   , '아메리카노'   ,'콜드블루' , '카페모카' ,'그린티크림 프라푸치노' ) 
+);
+
+
+
+ 

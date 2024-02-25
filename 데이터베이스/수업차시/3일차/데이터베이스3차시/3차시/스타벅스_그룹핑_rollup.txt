@@ -1,0 +1,10 @@
+select  * from STARBUCKS_ORDER;
+
+select  decode(order_item,null,'합계', order_item), count(*) 
+from STARBUCKS_ORDER
+group by  rollup(order_item);
+
+
+select  COALESCE(reg_name, '전체'), order_item , count(*)
+from STARBUCKS_ORDER
+group by  rollup(reg_name, order_item) ;

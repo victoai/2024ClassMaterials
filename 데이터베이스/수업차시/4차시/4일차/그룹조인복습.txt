@@ -1,4 +1,4 @@
-developer 설치 , 9시에 채팅창에 보내드릴께요
+ 
 //전체포인트합계
 select  sum(m_point)
 from member_tbl_11;
@@ -22,9 +22,11 @@ having sum(m_point) >=4000;
 
 
 
-join
+join--
 tbl_test_order : 주문테이블
 tbl_test_customer   :고객테이블
+
+조인시 중심테이블 정하기
 
  select  *
  from  tbl_test_order ;
@@ -37,6 +39,17 @@ tbl_test_customer   :고객테이블
 
 
  desc tbl_test_order  ;
+
+
+
+select * from member_tbl_11 where m_point is not null;
+
+select  m_grade ,  sum(m_point) from member_tbl_11 where m_point is not null group by  rollup(m_grade);
+
+select  nvl(m_grade, '합계'),  sum(m_point) from member_tbl_11 where m_point is not null group by  rollup(m_grade);
+
+select  nvl(m_grade, '합계'),  sum(m_point) from member_tbl_11 where m_point is not null group by  rollup(m_grade);
+ 
  
 
 

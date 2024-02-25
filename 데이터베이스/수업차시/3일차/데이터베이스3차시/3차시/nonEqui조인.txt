@@ -1,0 +1,45 @@
+SELECT *
+FROM table1
+JOIN   table2
+ON     table1.column1 < table2.column2;
+
+| column1 |
+|--------|
+|    10   |
+|    15   |
+|    20   |
+
+
+| column2 |
+|--------|
+|    12   |
+|    18   |
+|    25   |
+
+| table1.column1 | table2.column2 |
+|--------------|-----------------|
+|       10        |       12        |
+|       10        |       18        |
+|       15        |       18        |
+|       20        |       25        |
+
+
+
+
+
+create table table3(  column1 number(2));
+create table table4(  column2 number(2));
+
+
+insert into table3 values(10);
+insert into table3 values(15);
+insert into table3 values(18);
+
+
+insert into table4 values(12);
+insert into table4 values(18);
+insert into table4 values(25);
+SELECT *
+FROM table3
+JOIN   table4
+ON     table3.column1 < table4.column2;
