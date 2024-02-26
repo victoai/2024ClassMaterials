@@ -1,0 +1,43 @@
+drop table t3; 
+drop table t33;
+drop table temp01;
+
+
+create table t3(
+    no number,
+    name varchar2(10) ,
+    deptno number 
+);
+ 
+
+insert into t3 values( 1,'AAA',100) ;
+insert into t3 values( 2,'BBB',200) ;
+insert into t3 values( 3,'CCC',300) ;
+
+
+-- 테이블 복사하기
+create table t33
+as
+select * from t3;
+ 
+-- t3 테이블과 같은 구조를 가진 빈 테이블 t3333 생성
+CREATE TABLE t3333 AS
+SELECT  * FROM t3 WHERE 1=2;   --1과2가 같을 수 없다. 언제나 만족할 수 없는 조건
+
+  
+select * from t33;
+select * from t3333;  
+
+
+-- 임시테이블 생성
+-- commit시 데이터 삭제 
+-- 테스트용으로 사용할 때 사용한다.
+create  global TEMPORARY table  temp01(  no number , name varchar2(10) )   on commit delete rows;
+
+insert into temp01 values( 1, 'test ');
+select * from temp01;
+commit;
+--commit 확인
+select * from temp01;
+
+
