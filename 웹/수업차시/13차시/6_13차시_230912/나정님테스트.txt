@@ -1,0 +1,22 @@
+테스트하기
+
+내 프로젝트로 git fork
+
+내 프로젝트 로컬저장소에  git clone
+
+branch  만들기
+
+이클립스 프로젝트에서 열기
+
+add .
+commit 하기
+push  하기
+
+1.   push하기 몇번 해보기
+     pull request 보내기
+
+
+2. 협업리포지토리 변경해 보기
+
+
+3.  local리포지토리에서 변경후 push해 보기

@@ -1,0 +1,10 @@
+create   table  foodtbl(
+   name varchar2(20) primary key, 
+   price varchar2(10)
+);
+
+
+insert into foodtbl values( '스파게티', '10000');
+insert into foodtbl values( '초밥', '12000');
+insert into foodtbl values( '돈까스', '12000');
+commit;

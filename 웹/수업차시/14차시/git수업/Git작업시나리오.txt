@@ -1,0 +1,23 @@
+
+1.  공통의 작업을 마친다.  (메인화면)
+2.  조장이 git repository push 한다  (협업 repository) :upstream 저장소라고 말한다
+3.  내 저장소로 fork하기
+4.  fork한 저장소  local로 Clone 하기
+5.  새로운 브랜치 생성
+6.  자신이 맡은 작업을 수행한다.
+7.  add . , commit 수행한다  (수정사항반영과 commit 만들기)
+8.  하루에 한번  Pull request 보낸다.
+
+
+javaResource
+   -패키지는 각자 맡은 업무 단위로 나누다
+   -board.dao
+    board.contoller
+    board.model
+-views
+   WEB-INF/views/board/list.jsp
+
+
+조장은 아침에  pull request 확인하여 조원들과 함께  merge 한다
+
+

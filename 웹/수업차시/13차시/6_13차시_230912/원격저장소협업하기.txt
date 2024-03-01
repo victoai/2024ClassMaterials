@@ -1,0 +1,18 @@
+
+##github 원격저장소 만들기(협업하기)
+mainbranch를 담당할 팀원이  git repository를 만든다
+프로젝트구조를 만든다 (공통사항을 만든다)
+
+1. 팀원들이  repository를 fork 한다
+2. 본인  git hub에 같은 리포지토리가 만들어진것을 확인한다
+3. 지금 자신의 git hub에 만들어진 리포지토리를 clone 한다 ( 자신의 작업폴더 안에서 clone한다)
+4. git branch  wjy    (branch를 만든다 )
+5. git switch wjy      (branch로 이동한다)
+6. 작업을 수행한다
+7. git add .    (변경사항을 저장한다)
+8. git commit -m "변경내용"   (변경이력을 만든다.)
+9. git push -u origin wjy   (주의  wjy !!  로 push해야함)
+
+10. 자신의 git hub에 들어가면  compare &  pull request 요청한다
+11. 원래repository를 만든 사람(팀장) 의 github 리포지토리에 들어가면  확인 후 merge 한다 (합친다)
+

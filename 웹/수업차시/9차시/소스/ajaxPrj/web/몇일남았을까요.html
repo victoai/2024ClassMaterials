@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<script>		
+		let today = new Date();
+	    let nowYear  = today.getFullYear();
+	    alert( nowYear);
+	    let theDate  = new Date(2023,11, 8) ;  // 월-1 해야함 12월이라먼 11로 
+	    let diffDate  = theDate.getTime() - today.getTime();   //
+	    let result  = Math.ceil( diffDate/ ( 1000*60*60*24 ) );
+	     alert( result +"남았어요 !");     
+	</script>
+
+</body>
+</html>

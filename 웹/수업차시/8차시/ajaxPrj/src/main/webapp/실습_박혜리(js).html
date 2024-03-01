@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//자바스크립트로
+	window.addEventListener("load",function(){
+		//alert("df");
+		let div = document.querySelector("div");
+		
+		
+		let btn1 = document.querySelector("#btn1");
+		btn1.addEventListener("click",function(){
+			div.style.color="red";
+		})
+		
+		let btn2 = document.querySelector("#btn2");
+		btn2.addEventListener("click",function(){
+			div.style.color="green";
+		})
+		
+		
+		let btn3 = document.querySelector("#btn3");
+		btn3.addEventListener("click",function(){
+			div.style.color="blue";
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<h2>동적으로 이벤트처리하기 자바스크립트</h2>
+	<button id="btn1">버튼R</button>
+	<button id="btn2">버튼G</button>
+	<button id="btn3">버튼B</button>
+	<div>front</div>
+</body>
+</html>

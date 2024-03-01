@@ -1,0 +1,14 @@
+'원본 remote repository'(upstream)를 깃허브에서 fork
+'fork한 remote repository'(origin)를 깃 클라이언트로 clone
+기능을 완성할 때까지 반복
+'clone한 repository'(local)에 commit
+local에서 origin으로 push
+upstream에 반영하기
+PR을 등록하기 전 upstream에 바뀐 내용이 없는 경우
+origin에서 upstream으로 PR(Pull Request)
+PR을 등록하기 전 upstream에 바뀐 내용이 있는 경우
+upstream을 local로 pull
+local에서 origin으로 push
+origin에서 upstream으로 PR(Pull Request)
+fork를 했을 때는 upstream에 바뀐 내용이 있을 때 origin에도 반영해주는
+ 작업이 한 단계 추가됐답니다. 혹시 여기까지 이해가 안 되거나, 추가로 궁금한 내용이 있으면 댓글로 질문 남겨주시면 제가 알고 있는 범위 내로(?) 알려드리겠습니다.

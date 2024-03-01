@@ -1,0 +1,27 @@
+7차시
+Model만들기
+서비스사용하기
+DAO만들기
+acorntbl 테이블의 학생명단 정보 가져오는 서비스 만들기
+
+
+
+
+실습!
+class 가변인자{
+      public  void print( String ...  strs){            
+           for( String s: strs) {
+                  System.out.println( s );
+            }
+
+    }
+
+   public static void main( String[] args) {
+              가변인자  s = new 가변인자();
+                     s.print("one");
+	      s.print("one" ,"two");
+              s.print("one" ,"two" ,"three");
+   }
+
+}
+

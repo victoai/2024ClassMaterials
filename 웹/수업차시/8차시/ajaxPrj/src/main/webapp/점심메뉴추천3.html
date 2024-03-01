@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+function send(){
+	 alert("fkgkgkgkg");	 
+	 $.ajax({
+		 type:"get",
+		 dataType:"json", 
+		 url:"/ajaxPrj/foodJsonArr",
+		 success: function(data, status){
+			 console.log( data);		 
+			 show(data); 
+		 },
+		 error:function(err){
+			 alert("에러발생");
+			 console.log( err);
+		 }
+	 });	
+}
+
+function show(data){
+	console.log( data);
+	let menu  = $("#menu");
+	 console.log( data.length);
+	 for(let i=0 ; i< data.length ; i++){
+		 let item= data[i];
+		 menu.append(`<li> ${item.type}   ${item.menu}  ${item.price}</li>`);
+	 }					
+}
+</script>
+</head>
+<body>
+
+
+
+<button  onclick="send()">메뉴추천</button>
+
+<table id="menu">
+</table>
+</body>
+</html>

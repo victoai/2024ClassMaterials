@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	window.addEventListener("load",function(){
+		document.querySelector("#btnR").addEventListener("click",function(){
+			document.querySelector("#txt").style.color="#F00"
+		});
+		$("#btnG").click(function(){
+			$("#txt").css("color","#0F0");
+		});
+		$("#btnB").click(function(){
+			document.querySelector("#txt").style.color="#00F"
+		});
+	});
+</script>
+<style>
+	#txt{
+		font-size:22px;
+		font-weight:bold;
+	}
+</style>
+</head>
+<body>
+<h2>동적으로 이벤트 처리하기 자바스크립트,제이쿼리</h2>
+<button id="btnR">버튼 R</button>
+<button id="btnG">버튼 G</button>
+<button id="btnB">버튼 B</button>
+<div id="txt">font</div>
+</body>
+</html>

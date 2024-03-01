@@ -1,0 +1,76 @@
+package member;
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+@WebServlet("/list.test")
+public class ListServlet  extends HttpServlet {
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		 
+ 
+		ArrayList<Member> list  = new ArrayList<>();
+		//db 연동
+		Connection con=null;
+		Statement st = null;
+		ResultSet rs = null;
+		try{
+			String driver = "oracle.jdbc.driver.OracleDriver" ;
+			String url="jdbc:oracle:thin:@localhost:1521:xe";
+			String user="system";
+			String password="1234";
+	
+			//1. 오라클드라이버 로딩
+			Class.forName(driver);
+			/*Class.forName("oracle.jdbc.driver.OrackeDriver")처럼
+			 특정 클래스를 로딩하면 자동으로 객체가 생성되고 DriverManager에 등록된다.
+		     */		
+			
+			// DriverManager는 JDBC 드라이버 세트를 관리하기 위한 기본 서비스입니다.
+			//2. 데이터베이스 연결하기
+			con= DriverManager.getConnection(url, user, password);			
+			//3. statement 얻어오기
+			st = con.createStatement();	
+			//4. 필요한 sql 작성
+			String sql ="select * from member_tbl_11";
+			//5. 최종적으로 실행
+			rs = st.executeQuery( sql) ;
+			//6. 가져온 쿼리 결과를 화면에 출력하기				
+			
+			while( rs.next() ) {
+				 Member  m= new Member( rs.getString(1) , rs.getString(2) , rs.getString(3) , rs.getString(4) , rs.getString(5) , rs.getString(6) , rs.getString(7)  )	; 	
+				 list.add(m);
+			}			
+		 
+			rs.close();
+			st.close();
+			con.close();
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}		
+		
+		
+		//데이터 담기
+		request.setAttribute("list1", list);
+		//view페이지 이동
+		request.getRequestDispatcher("listView3.jsp").forward(request, response);		
+	 
+	}
+		  
+ 
+	 
+
+}

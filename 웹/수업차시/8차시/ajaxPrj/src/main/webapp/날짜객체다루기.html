@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+
+   let today = new Date();
+   let nowMonth = today.getMonth()+1;
+   let nowDate = today.getDate();
+   let nowDay  = today.getDay();
+
+    document.write("오늘날짜 정보 출력"  );
+   
+     console.log( "현재월" +  nowMonth);
+     console.log( "현재 일" + nowDate);
+     console.log(  "현재요일" + nowDay);
+   
+   
+   let worldCup  = new Date(2002,4,31) ;  // 2002, 5,31  
+   let theMonth  = worldCup.getMonth()+1;
+   let theDate   = worldCup.getDate();
+   let theDay   = worldCup.getDay();
+   
+   
+     console.log( "그때의 월"  + theMonth);
+     console.log( "그때의 일" + theDate);
+     console.log( "그때의 요일" + theDay);
+   
+   
+</script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+git switch main
+git fetch upstream
+git merge upstream/main
+
+자신의 원격 저장소인 origin에 반영
+git push origin

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+
+$(document).ready(function(){;
+	$("#btn1").on("click",function(){
+		$("div").css("color","red");
+	});
+	
+	$("#btn3").on("click",function(){
+		 $("div").css({
+		      "color": "blue",
+		      "font-size": "30px"
+		    });
+	});
+});
+
+window.addEventListener("load", function(){
+	let btn2 = document.querySelector("#btn2");
+	btn2.addEventListener("click" , function(){
+		document.querySelector("div").style.color = "green";
+	});
+});
+
+
+
+</script>
+</head>
+<body>
+
+
+
+<button id="btn1">버튼R</button>
+<button id="btn2">버튼G</button>
+<button id="btn3">버튼B</button>
+
+<div>front</div>
+</body>
+</html>

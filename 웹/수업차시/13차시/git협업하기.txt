@@ -1,0 +1,16 @@
+1. https://github.com/victoai/acornTeam    fork하기  (저장소를 자신의 github에 복사하기)
+2. fork한 저장소 clone하기 
+3. 작업디렉토리에 복사된 프로젝트 확인하기 
+4. 이클립스에서 프로젝트   import  하기
+5. 브랜치 생성하기 
+6. 작업수행하기  git add .  commit 
+7. push  origin 하기 
+8. pull request  보내기
+
+
+1. 이클립스에서  workspace변경하기
+2. 프로젝트 폴더 import  하기
+3. window->show view  -> git  -> git staging 열기
+4. 브랜치생성하기
+5. 프로젝트 선택후 ->  team  -> share
+6. git push 

@@ -1,0 +1,37 @@
+
+뽁뽁이빽뽂이 
+?????????????
+
+
+ client   ->     전송      ->     2byte 단위로 utf-8형식으로 읽어야 함
+                                        (ISO-8859-1 :기본임, 한 바이트 씩 읽는다) 
+                utf-8
+             (하이  안녕!) 
+
+
+
+
+                                           request.setCharacterEncoding("UTF-8");
+
+
+                                            or
+                                         Server.xml
+ 		             (서버 설정을 변경함)
+                                         하지만 서버 설정을 손댈수 없는 경우도 있음										
+ 
+                                          Connector port ="8080"
+                                          protocol="HTTP/1.1"
+                                          connectionTimeout= "2000"
+                                          redirectPort ="8443"
+                                          URLEncoding="UTF-8"
+
+	                             response.setCharacterEncoding("UTF-8");
+                                           response.setContentType("text/html" ;charset="UTF-8"); 
+
+
+
+
+@newlec1 
+get 요청의 값은 server.xml에서 설정한 <Connector port="8180" URIEncoding="UTF-8" /> 설정에 영향을 받습니다. 아마도 설정에서 UTF-8 설정이 되어 있을 것 같습니다.
+                                         
+

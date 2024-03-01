@@ -1,0 +1,17 @@
+el
+  
+
+
+ parameter로 넘어온 값은  param을 통해서 꺼내야 함 
+ parameter로 넘어온 데이터는    request.getParameter("id") ; 얻어와야 함 
+ el를 사요하고 싶다면  param을 사용해야 함 
+  
+
+
+${param}	파라미터 값을 가져오기 위한 객체
+${header}	헤더 값을 가져오기 위한 객체
+${cookie}	쿠키 값을 가져오기 위한 객체
+
+${initParam}	JSP 초기 파라미터를 가져오기 위한 객체
+${pageContext}	pageContext 객체에 접근하기 위한 객체
+

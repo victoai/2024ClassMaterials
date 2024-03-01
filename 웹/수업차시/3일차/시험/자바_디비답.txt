@@ -1,0 +1,83 @@
+
+[문항1] 다음의 자바코드에서 o객체로 문자열의 길이를 구할 수 있는지에 대한 답과 그 이유를 쓰시오
+String  str="hello";
+Object o = str ;
+답안 :	
+구할수 없다 .  문자열객체가 생성되어 hello라는 문자열과 관련된 매서드를 모두 사용할 수 는 있으나 Object형으로 참조했기 때문에 업캐스팅에 해당된다.
+즉 부모형으로 해석의 범위가 줄어 들었다.
+꼭 코드를 테스트해 보자 !!
+o. 점을 찍어 멤버를 확인해보면 매서드가 확 줄어있다. 대상을   Object type으로 해석함
+
+[문항2] 다음 코드의 올바른 실행 결과를 쓰시오
+int sum=0, i=0;
+while( i<20){
+  sum= sum+i;
+  i +=2;
+}
+System.out.println( sum );
+답안 :	90
+평가기준 :	
+[문항3] 다음 중 올바른 다운캐스팅을 고르시오
+Person과 Student는 상속관계로 Peroson이 부모 class이다
+Animal 과 Cat은 상속관계로 Animal이 부모 class이다
+1.  Object o = new Object();                  2. Animal  animal= new Animal();
+    String s = (String) o;                        Cat cat = (Cat) animal;
+3. Person  student = new Student();          4.  Person p = new Person();
+    Student p = (Student) student;                Student s = (Student)p;               
+답안 :	 3
+평가기준 :	
+[문항4] 생성자에 대한 설명 중 틀린 것은 ?
+① 생성자의 이름은 클래스의 이름과 반드시 같아야 한다.
+② 상속시 자식의 생성자가 호출될 때 부모의 기본생성자가 기본적으로 호출된다.
+③ 생성자에서는 아무 값도 리턴하지 않기 때문에 리턴타입을 void로 해 주어야 한다.
+④ 생성자가 작성되지 않으면 컴파일러가 자동으로 기본 생성자를 추가해 준다.
+답안 :	3
+평가기준 :	
+[문항5] Score 타입의 객체만을 저장할 수 있는 ArrayList 컬렉션의 list 객체를 생성 하는 코드를
+아래의 보기에서 선택하시오
+① ArrayList<Object> list= new ArrayList<>();
+② ArrayList list = new ArrayList();
+③ ArrayList<Student> list = new ArrayList<>();
+④ ArrayList<Score> list= new ArrayList<>();
+답안 :	4
+평가기준 :	
+[문항6] Calculator 인터페이스를 구현한 클래스를 작성한 올바른 것을 고르시오
+interface Calculator{
+    int add( int su1 , int su2);
+}
+
+1. A  implements Calculator      {               
+    public int add( int su1, int su2) {                   
+          return su1+su2;                                   
+  }                                                         
+}                                                     
+
+2. B extends Calculator {
+    public int add( int su1, int su2) {
+          return su1+ su2;
+    }
+}
+답안 :	1
+평가기준 :	
+[문항7] 다음 중 DML에 해당되지 않는 것을 선택하시오
+1. select    2. update
+3. create    4. insert
+답안 :	3
+평가기준 :	
+[문항8] 테이터조회시 중복되지 않게 조회하는 키워드를 쓰시오
+답안 :	
+평가기준 :	 distinct
+[문항9] 고객과 주문테이블을 사용하여 주문현황을 조회하려고 한다. 주문하지 않은 고객도 함께 조회하려고 한다.
+올바르게 작성된 sql 을 선택하시오 ( 주문과 고객테이블은 id 컬럼을 공통으로 가지고 있다.)
+1. select * from  주문 a join 고객 b  on a.id=b.id ;
+2. select * from  주문 a left outer join 고객  b  on a.id =b.id;
+3. select * from  주문 a right outer join  고객 b on a.id=b.id;
+4. select * from 주문 a join 고객 b;
+답안 :	3
+평가기준 :  고객테이블이 오른쪽에 위치하기 때문에    right outer join  해야함, 만약  고객테이블이 왼쪽에 있었다면    left outer join  해야 함	
+[문항10] 집계로 group by 된 결과에서 조건에 맞는 내용을 조회할 때 쓰이는 절을 선택하시오
+1. where 
+2. having
+3. order by
+4. join
+답안 :	2

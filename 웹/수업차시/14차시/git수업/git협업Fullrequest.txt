@@ -1,0 +1,49 @@
+upstream      :   원본 저장소(협업 할 github 저장소 ) : 조장님 리포지토리
+origin           :  나의 github 저장소
+<단축이름>  :임의로 작성해도 된다.
+
+
+원격저장소 추가하기  (원격저장소  더하기 )
+git remote add  origin              <url>  (내원격저장소 주소)
+git remote add  upstream         <url>  (원본원격저장소 주소) :조장님꺼
+                      (단축이름)       (원격저장소위치)
+
+
+#원격저장소 삭제하기
+git remote rm origin
+
+
+#원격저장소 조회하기
+git  remote -v
+
+#원격저장소에 밀어넣기(업로드)
+git push -u origin  main
+git push   ( 이것만 해도 됨)
+
+#원격저장소와 동기화하기 
+git pull  upstream
+
+#내원격저장소에 push하기
+git push origin main
+
+
+0. 원본리포지토리에 가기
+1. 내 리포지토리로  fork하기
+2. 내 리포지토리에서 clone 하기
+3. 내 로컬 리포지토리에서 확인하기
+4. 브랜치만들기
+5. 작업및 commit 하기
+6. 내 리포지토리에  push 하기 
+7. Pull request 작성하기 ( 원본에 머지되기를 요청하기)
+8. 조장님 github 리포지토리에 들어가기
+9. pull request확인 후  merge하기
+10.  upstream 저장소에서 pull하기 (조장님 원격저장소와 동기화 하기)
+11.  내 저장소에 push하기  
+     
+  
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+
+AcornDAO    ( 테이블하나 당 DAO한 개가 필요함 )
+1. 고객전체조회
+2. 고객한명조회
+3. 고객정보변경
+4. 고객삭제
+5. 고객등록
+
+AcornService 
+서비스로 만들기
+
+웹요청으로                                            요청이름
+1. 고객전체조회   //서블릿, view(jsp)  /acorn
+2. 고객한명조회  // 서블릿, view(jsp)  /searach
+3. 고객정보변경 //서블릿, view         /update
+4. 고객삭제    //서블릿, view                /delete
+5. 고객등록   //서블릿, view           /reg
+
+
+오후실습
+
+create table  goodstbl(
+    id varchar2(20) primary key,
+    name  varchar2(30) ,
+    price number(4)
+);
+
+insert into values( 'c001' , '아이스아메리카노' , 2000);
+insert into values( 'c002' , '바닐라라떼' , 2800);
+insert into values( 'c003' , '카라멜마키야또' , 3800);
+
+
+
+ 
+
+
+

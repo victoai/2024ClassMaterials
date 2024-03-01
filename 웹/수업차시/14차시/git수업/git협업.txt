@@ -1,0 +1,38 @@
+원본 저장소(협업 할 github 저장소 ) : 조장님 리포지토리
+
+나의 github 저장소
+
+
+원격저장소 추가하기  (원격저장소 더하기 )
+git remote add  origin              <url>  (내원격저장소 주소)
+git remote add  upstream         <url>  (원본원격저장소 주소) :조장님꺼
+                      (단축이름)       (원격저장소위치)
+
+원격저장소 조회하기
+git  remote -v
+
+git push -u origin  main
+git push   ( 이것만 해도 됨)
+
+
+main과 Origin과의 상호작용을 기본으로 하겠음
+이후에는 -u 부터 생략가능함 
+
+원격저장소 갖고와서 합치기
+
+git pull  ( origin master )
+origin을 내 repository의 main브랜치로 갖고와라 (merge됨)
+
+
+원격저장소 복사하기
+git clone <url>
+
+
+로컬저장소와 원격저장소와의 상호작용
+
+
+
+
+
+
+
