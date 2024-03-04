@@ -30,8 +30,7 @@
 
 
 
-
-@newlec1 
+ 
 get 요청의 값은 server.xml에서 설정한 <Connector port="8180" URIEncoding="UTF-8" /> 설정에 영향을 받습니다. 아마도 설정에서 UTF-8 설정이 되어 있을 것 같습니다.
                                          
 
