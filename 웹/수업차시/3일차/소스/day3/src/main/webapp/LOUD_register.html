@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>오디션프로그램 등록</title>
+<link href="./LOUD_register.css" rel="stylesheet" />
+ 
+
+</head>
+<body>
+
+	<form name="frm" action="LOUD_register_action.jsp" method="post">
+		<table>
+			<caption>참가자 등록</caption>
+			<tr>
+				<td>참가자ID</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>참가자이름</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>생년월일</td>
+				<td class="tdBirth">
+					<input type="text">년
+					<input type="text">월
+					<input type="text">일
+				</td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td class="tdGender">
+					<input type="radio" name="1">남
+					<input type="radio" name="1">여
+				</td>
+			</tr>
+			<tr>
+				<td>실력무대</td>
+				<td>
+					<select>
+						<option>선택</option>
+						<option value="V">보컬</option>
+						<option value="D">댄스</option>
+						<option value="R">랩</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>매력무대</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<button type="submit">저장</button>
+					<button type="reset">취소</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

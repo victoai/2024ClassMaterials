@@ -1,0 +1,35 @@
+@charset "UTF-8";@charset "UTF-8";
+
+*{
+	padding : 0px;
+	margin : 0px;
+}
+
+table{
+	width : 400px;
+	border: 1ps solid black;
+	border-collapse: collapse;
+	margin : 0 auto;
+	margin-top: 20px;
+}
+
+td{
+	height: 30px;
+	border: 1px solid black;
+	text-align: center;
+}
+
+td:nth-child(1){
+	width: 100px;
+}
+td:nth-child(2){
+	width: 300px;
+	text-align: left;
+	line-height: 95%;
+	padding-left: 10px;
+}
+ 
+.tdBirth input{
+	width: 50px;
+	border: 1px solid  red;
+}

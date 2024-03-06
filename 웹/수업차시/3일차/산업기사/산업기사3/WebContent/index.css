@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+header{
+	padding:10px;
+	background-color: blue;
+	text-align: center;
+}
+
+nav{
+	padding:10px;
+	background-color: grey;
+}
+
+a{
+	color:white;
+	text-decoration: none;
+	padding-right: 20px;	
+}
+
+section{
+	
+	padding:30px;
+	height: 500px;
+	
+}
+
+footer{
+	padding:10px;
+	background-color: blue;
+	text-align: center;
+}
