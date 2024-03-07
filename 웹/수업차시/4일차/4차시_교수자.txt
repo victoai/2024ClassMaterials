@@ -8,7 +8,10 @@ radio
 checkbox
 select 
 
-
+--등록
+--조회
+--변경
+--삭제
 
 css
 javascript
