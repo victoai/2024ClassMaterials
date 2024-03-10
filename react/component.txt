@@ -1,0 +1,34 @@
+cont  [ state, setState] = useState(0)
+const [ state, setState] = useSate(0)
+
+
+ 
+
+import  './App.css';
+import  Viewer from './Viewer';
+import Controller  from  './Controller';
+import { useState } from 'react';
+
+
+function App() {
+const [ count, setCount] = useState(1)
+const onClickButton = ( value) =>{
+  setCount( count + value);
+};
+ 
+
+return (
+<div className="App">
+  <h1> SimpleCounter  </h1>
+  <section>
+      <Viewer count={count} />      
+  </section>   
+  <section>
+       <Controller  onClickButton={ onClickButton} />
+  </section>
+</div>
+);
+
+};
+
+

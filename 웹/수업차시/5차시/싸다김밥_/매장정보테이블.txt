@@ -1,0 +1,28 @@
+
+create table store_ssada_tbl (
+    store_cd  varchar2(5)  primary key , 
+    store_nm  varchar2(20) not null, 
+    store_addr  varchar2(100) not null,
+    store_tel    varchar2(15)  ,
+    store_img  varchar2(20) 
+);
+
+
+
+insert into store_ssada_tbl  values('s001',  '구리돌다리점', '구리시 수택동 423-15 1층', '031-567-5876' , 'guridol.jpeg');
+insert into store_ssada_tbl  values('s002', '어린이대공원역점',  '서울 광진구 광나루로 369 두산위브파크 1층', '02-467-2919'  , 'child.jpeg');
+insert into store_ssada_tbl  values('s003',  '왕십리역점', '서울 성동구 왕십리로 320 W에비뉴타워 102,103호', '02-2282-2919' , 'king.jpeg');
+insert into store_ssada_tbl  values('s004', '대치점', '서울 강남구 도곡로 440 1층', '02-558-4252' ,'daechi.jpeg');
+insert into store_ssada_tbl  values('s005', '한양대점' , '서울 성동구 마조로27 1층', '02-2281-2364' , 'hanyang.jpeg');
+insert into store_ssada_tbl  values('s006', '사당역점' ,'서울 관악구 남현길7 1층' ,'02-598-4632'  ,'sadong.jpeg');
+insert into store_ssada_tbl  values('s007', '답십리역점' ,'서울 동대문구 전농로 12 1층', null , 'dab.jpeg');   -- 확인하기 insert into store_ssada_tbl  values('s007', '답십리역점' ,'서울 동대문구 전농로 12 1층', '');    '' 입력하면 null로 입력됨 
+
+
+insert into store_ssada_tbl  values( 's008',  '상왕십리역점', '서울 성동구 왕십리로 410 센트라스L동상가 101호', '02-2294-6322' , 'sangking.jpeg');
+insert into store_ssada_tbl  values( 's009', '동대문점', '서울 중구 장충단로 249-28', '02-2274-5273' ,'dong.jpeg');
+insert into store_ssada_tbl  values( 's010', '장안점' , '서울 동대문구 장한로 105' , '02-2242-2877' , 'jang.jpeg');
+insert into store_ssada_tbl  values( 's011', '구의역점', '서울 광진구 자양로 104' , '02-453-2919' , 'gu.jpeg');
+insert into store_ssada_tbl  values( 's012', '강남구청역점' ,'서울 강남구 학동로 342 SK허브블루 105호' ,'02-515-2919' , 'gangnam.jpeg');
+insert into store_ssada_tbl  values( 's013', '석촌역점' , '서울 송파구 송파동 19-2' ,'02-418-5353' ,'seok.jpeg');
+insert into store_ssada_tbl  values( 's014', '문정점' , '서울 송파구 새말로 62 송파푸르지오시티 109호' , '02-400-4504' ,'moonjung.jpeg');
+insert into store_ssada_tbl  values( 's015', '암사역점' , '서울 강동구 올림픽로 787 1층', '02-429-2588' ,'amsa.jpeg');

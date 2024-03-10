@@ -1,4 +1,4 @@
-1. 학습모듈
+1. MVC웹개발 모델이해하기
 2. MVC 구현하기  -  member_tbl_11 회원목록 조회
      controller
    model
@@ -23,14 +23,6 @@ MVC
    (영화정보  top5)
   서블릿, 모델, view 
 
-
-2.
-  조편성 서비스 
-   서블릿,
-   모델
  
-//   view만들기        View_wjy.jsp
-    <조편성>  
-     4개조
 
 
