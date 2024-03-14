@@ -14,13 +14,13 @@ $.ajax( );
 
 $.ajax( {
         url: ＂action url＂，
-　　  type: "get/post/put/delete" ,
+　　  type: "get" ,
         data :“전송할 데이터” ,
         dataType : "요청한 데이터형식,  html, text, json,xml  " ( 서버가 보내는 형식임)
-        success: function(){
+        success: function( data ){
              //응답이 성공적일 때 수행할 콜백함수
         } ,
-        error: function(){
+        error: function(err){
              //응답이 실패했을 때 수행할 콜백함수
         } 
      } 
@@ -30,7 +30,6 @@ json-20230618.jar   라이브러리로 json다루기
 ############
 오후실습
 ############
-
 1. 인기영화 5개 데이터 json으로 받아오기 
 2. 인기영화 5개 dao 이용하여 json으로 받아오기
  
