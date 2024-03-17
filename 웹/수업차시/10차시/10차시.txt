@@ -1,0 +1,18 @@
+
+학습목표 
+   1. jquery  ajax매서드를 이용하여 서버에 비동기로 등록 (post 요청)을 요청할 수 있다.
+   2. post 요청시 요청바디에 데이터가 전달된다. 서버측에서는 요청 바디의 값을 얻어 올수 있다.
+   3. 갤러리를 만들 수 있다 (html +css + 자바스크립트)
+
+
+      // request의 getInputStream()으로 요청바디를 읽을 수 있는 스트림 얻어오기
+      // 파일 읽어 오는 방법과 같다
+
+       BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()));
+        StringBuilder sb = new StringBuilder();
+        String line;
+        while ((line = reader.readLine()) != null) {
+            sb.append(line);
+        }        	        
+        
+        System.out.println( sb.toString());
