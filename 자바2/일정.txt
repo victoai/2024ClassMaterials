@@ -1,0 +1,28 @@
+자바2
+1)- MyArrays만들기 - 객체배열정렬기능만들기
+ -Generic 학습하기
+  OList, GList복습하기
+
+ - 제네릭클래스 만들기
+ - 제네릭제한하기
+  <? extends T>
+  <? super T>
+
+
+2) 람다식(함수형프로그램)작성하기 
+
+3) Collection  - List, Set, Map  (다양한 자료구조 만나기)
+   Stream 다루기 
+
+
+
+
+4) reflect학습하기
+   변경에 유리한 코드 작성하기 
+
+
+5) Enum , Optional,  Annotation 
+
+
+
+
