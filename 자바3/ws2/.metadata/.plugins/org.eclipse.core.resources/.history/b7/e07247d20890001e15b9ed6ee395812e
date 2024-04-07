@@ -1,0 +1,32 @@
+package interfaceEx;
+
+public class LIbAEx {
+
+	
+	
+	public static void main(String[] args) {
+		 
+		
+		
+		LibA   lib = new LibA();
+		
+		lib.forCharacter('?');
+		
+		//lib.forSomethingDo(   new SomethingDoI() {});
+		 lib.forSomethingDo(   new SomethingDoI() {
+
+			@Override
+			public void doing() {
+				System.out.println("코딩한다");
+				
+			}});
+		 
+		 
+		 
+		
+		
+		
+
+	}
+
+}

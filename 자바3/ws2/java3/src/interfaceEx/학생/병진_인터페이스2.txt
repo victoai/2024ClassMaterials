@@ -1,0 +1,47 @@
+//인터페이스
+public interface SomethingDoI {
+	public void bj();
+}
+
+
+//인터페이스 구현
+public class LibA implements SomethingDoI {
+	public void forStart() {
+		for (int i = 1; i <= 5; i++) {
+			System.out.print("★");
+		}
+		System.out.println();
+	}
+
+	public void forCharacter(String c) {
+		for (int i = 1; i <= 5; i++) {
+			System.out.println(c);
+		}
+	}
+	@Override
+	public void bj() {
+		System.out.println("🍗🍗🍗");
+	}
+	
+	public void Something(SomethingDoI SomethingDo) {
+		for (int i = 1; i <= 5; i++) {
+			SomethingDo.bj();
+		}
+	}
+
+}
+//실행(메인함수)
+public class LibMain {
+
+	public static void main(String[] args) {
+		LibA program = new LibA();
+		
+		program.forStart();
+		program.forCharacter("A");
+		program.Something(program);
+	}
+}
+
+
+
+

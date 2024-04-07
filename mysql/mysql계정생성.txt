@@ -1,0 +1,5 @@
+create user abc@localhost identified by '0000';
+grant all privileges on *.* to 'abc'@'localhost';
+
+DROP USER '계정아이디'@'호스트';
+ex) drop user 'testId1'@'localhost';

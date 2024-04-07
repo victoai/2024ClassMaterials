@@ -1,0 +1,42 @@
+
+람다식 이해하기
+Consumer인터페이스 이해하기
+Supplier인터페이스 이해하기
+
+MyConsumer 만들고 사용하기
+MySupplier 만들고 사용하기 
+
+
+람다식 활용 예:
+매서드의 매개변수로 
+매서드의 반환값으로 람다식을 사용함 
+
+
+//람다식을 이해하기 위해서는 
+//인터페이스를 만들고 사용하게 되는 이유에 대해서 알아야 한다.
+
+?왜 인터페이스를 사용하고 
+ 왜 인터페이스를 구현해야 하나요? 
+이것에 대한 이해가 반드시 필요합니다. !! 그래야 모든것이 자연스러워집니다
+
+//그래서  MyArrays를 여러번 만들어 보는것이 매우 중요합니다. !!!!
+
+
+Collections.sort( list ,   new  Comparator<> () {
+          
+           @Override 
+             public int compare( Object o1, Object o2 ) {
+                   return o1.getKor() - o2.getKor();
+            }
+}) ;
+
+
+Collections.sort( list , (o1,o2  -> o1.getKor() - o2.getKor() ) ;
+Collections.sort( list , (o1,o2  -> o1.getKor() - o2.getKor() ) ;
+
+
+
+
+//이런것도 지원함 
+Collections.sort(list, Comparator.comparingInt(Score::getKor));
+

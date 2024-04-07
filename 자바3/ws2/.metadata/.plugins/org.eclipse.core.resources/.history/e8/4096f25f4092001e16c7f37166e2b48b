@@ -1,0 +1,66 @@
+package ch14.optional.실습;
+
+import java.util.ArrayList;
+import java.util.Optional;
+
+public class Ex01 {
+
+	public static void main(String[] args) {
+	 
+		String  id ="dy";		
+		 Optional<User> user  =searchUser( id);			
+		System.out.println(  "당신의 비번:"  +user.orElse(new User()).getPw());
+		
+		
+				
+		Optional<User> user2 =  searchUserOptional(id);
+		 
+				
+		
+		
+	}
+	
+	
+	
+	public static Optional<User>  searchUser( String id) {
+		
+		
+		ArrayList<User> users  = new ArrayList<> ();
+		
+		users.add( new User("hong" ,"0000"));
+		users.add( new User("kim" ,"9999"));
+		users.add( new User("lee" ,"222"));
+		
+		
+		User result= null;
+		
+		for( User user : users) {
+			
+			if( user.getId().equals( id)) {				
+				result =user;
+			}
+		}	  
+		
+		
+		return Optional.of(result);
+	}
+	
+	
+	public static Optional<User>  searchUserOptional( String id) {
+		
+		ArrayList<User> users  = new ArrayList<> ();		
+		users.add( new User("hong" ,"0000"));
+		users.add( new User("kim" ,"9999"));
+		users.add( new User("lee" ,"222"));	
+		
+		Optional<User>  result  = users.stream().filter(user -> user.getId().equals(id)).findFirst();
+		return result ;
+		
+	}
+	
+	
+	
+	
+	
+
+}

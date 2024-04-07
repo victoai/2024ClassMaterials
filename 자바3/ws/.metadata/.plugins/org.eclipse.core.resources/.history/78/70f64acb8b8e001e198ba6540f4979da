@@ -1,0 +1,46 @@
+package functionalInterface;
+
+import java.util.function.Predicate;
+
+public class PredicateEx {
+
+	public static void main(String[] args) {
+		 
+	  
+        Predicate<Integer> isEven = number -> number % 2 == 0;
+
+        
+        System.out.println(isEven.test(4));  // Should print true
+        System.out.println(isEven.test(7));  // Should print false
+        System.out.println(isEven.test(10)); // Should print true
+	}
+
+}
+
+
+/*
+
+
+ 
+
+public class Pree {
+    public static void main(String[] args) {
+        // Create an anonymous class for the Predicate
+        Predicate<Integer> isEven = new Predicate<Integer>() {
+            @Override
+            public boolean test(Integer number) {
+                return number % 2 == 0;
+            }
+        };
+
+        // Test the Predicate with some examples
+        System.out.println(isEven.test(4));  // Should print true
+        System.out.println(isEven.test(7));  // Should print false
+        System.out.println(isEven.test(10)); // Should print true
+    }
+}
+
+
+
+
+*/

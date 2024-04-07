@@ -1,0 +1,3 @@
+INDEX VERSION 1.134+C:\Users\user\Documents\자바풀스택\자바3\ws2\.metadata\.plugins\org.eclipse.jdt.core
+165460407.index
+1865797976.index

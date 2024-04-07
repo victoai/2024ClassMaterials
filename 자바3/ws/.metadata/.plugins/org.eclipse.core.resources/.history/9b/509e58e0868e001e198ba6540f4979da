@@ -1,0 +1,25 @@
+
+
+interface Runnable{
+
+}
+
+
+interface Consumer<T>{
+
+
+}
+
+
+interface Supplier<T>{
+
+}
+
+
+interface Function<T,R>{
+
+
+}
+
+
+

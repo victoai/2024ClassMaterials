@@ -1,0 +1,16 @@
+package interfaceEx.학생.김민지;
+
+public class LibAex {
+
+	public static void main(String[] args) {
+		
+		LibA libA = new LibA();		
+		libA.forStart();		
+		libA.forCharacter('♡');		
+		libA.forSomethingDo(libA);
+		
+		
+		
+	}
+
+}

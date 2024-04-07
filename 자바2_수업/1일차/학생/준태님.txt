@@ -1,0 +1,34 @@
+
+
+ 
+
+
+class Menu{
+   
+     String menu  = "싸이버거"   ;
+
+}
+
+class SetMenu extends Menu{ 
+    String side  ="감자튀김";
+      String drink  ="콜라";   
+
+
+    public  String getMenu(){
+           return  menu  + side + drink ;
+    }  
+
+}
+
+Order {
+     
+        public static void main(String[]args) {      
+        
+        SetMenu menu =  new SetMenu();
+        // 세트메뉴 선택하시오
+        String menuInfo=  menu.getSetMenu():
+        System.out.println( menuInfo);
+
+     }
+}
+

@@ -1,0 +1,30 @@
+package ch14.lamda.매서드참조.실습;
+
+interface Fuction<T, R>{
+	R apply( T t);
+}
+
+/*
+interface Function2{
+	String apply( Integer t);
+}
+
+interface Function3{
+	Integer apply( Integer t);
+}
+
+interface Function4{
+	Integer apply( String[] t);
+}
+ */
+
+
+public class Ex01 {
+
+	public static void main(String[] args) {
+	 
+		
+		
+	}
+
+}

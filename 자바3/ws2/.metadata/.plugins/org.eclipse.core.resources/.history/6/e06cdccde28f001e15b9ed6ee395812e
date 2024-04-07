@@ -1,0 +1,11 @@
+package annotation.실습;
+
+public class MyEx {
+	
+	@Count( count =2)
+	private int apples;
+	
+	
+	
+
+}
