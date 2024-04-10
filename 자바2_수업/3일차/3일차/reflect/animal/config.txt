@@ -1,1 +1,0 @@
-animal=java2.reflect.animal.Dog

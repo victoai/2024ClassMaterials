@@ -1,0 +1,34 @@
+ 연휴 실력올리기 대작전 !!!!!
+
+1. 순한맛 매운맛 풀어오기  ( 쓰고 그리고 코딩하기)
+   class 순한맛1{
+            public static void main( String[] args) {
+             System.out.println( "문제코딩하기");
+       }
+     }
+
+2. TV프로그램 정보 담을 수 있는 클래스 만들기
+    (연휴에 재미있는   tv프로그램 정보 담아서 출력하기 5개)
+
+3. 매서드20개 만들기  (입력정보와 반환값이 다양한 매서드 20개 만들기)
+   매서드 만들고 호출하기
+
+    class  매서드만들기{
+           public  void  매서드() {
+              System.out.println("메롱");
+           }
+       public int 매서드2( int su) {
+              System.out.println( su + "웃자");
+           }
+       public int[] 매서드3(){
+                System.out.println( "배열을 리턴해야 되는군!! 옛다 배열");
+                          int[] r  = new int[] { 9,8,7};  // int r= { 9,8,7}; 같음
+                          return r;
+            }  
+   }
+   
+4. 2번의 목록을 forEach를 사용하여 출력해 보기
+
+ 
+
+    
