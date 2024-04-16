@@ -1,0 +1,12 @@
+ 
+ create table test112(
+    id varchar2(10) primary key,
+   pwd varchar2(10) ,
+   name varchar2(10),
+   email varchar2(10),
+  birth date ,
+  sns varchar2(20) ,
+  reg_date date    
+);
+
+insert into test12 valuse('01','123' , 'hong', 'naver', '2002-09-11' , 'naver' ,'2002-09-11');

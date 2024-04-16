@@ -1,0 +1,44 @@
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.core.io.UrlResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.util.UriUtils;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.nio.charset.StandardCharsets;
+
+@Controller
+public class FileDownloadController {
+
+    @GetMapping(value="/attach/{fileName:.+}")
+    @ResponseBody
+    public ResponseEntity<byte[]> fileDownload(@PathVariable String fileName) throws IOException {
+        // Construct the file path
+        String filePath = "c:\\test\\upload\\" + fileName;
+
+        try {
+            // Load the file as bytes
+            byte[] fileBytes = org.apache.commons.io.FileUtils.readFileToByteArray(new java.io.File(filePath));
+            
+            // Encode the filename for HTTP header
+            String encodedFileName = UriUtils.encode(fileName, StandardCharsets.UTF_8.name());
+
+            // Set the Content-Disposition header to indicate file download
+            HttpHeaders headers = new HttpHeaders();
+            headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + encodedFileName + "\"");
+
+            // Return the file bytes as the response body with appropriate headers
+            return ResponseEntity.ok()
+                    .headers(headers)
+                    .contentLength(fileBytes.length)
+                    .body(fileBytes);
+        } catch (IOException e) {
+            // Handle exceptions, e.g., file not found
+            // You can customize the error response here
+            return ResponseEntity.notFound().build();
+        }
+    }
+}

@@ -1,0 +1,64 @@
+##################
+스프링1일차
+   hello spring 만나기 -   파라미터 수집 (편리해진 기능 만나기)
+   FrontController패턴 경험하기( mvc2로 개발- 자바웹개발용 ee에서 테스트)
+   Spring DI  (IOC container  역할) 
+  
+############################################
+ -의존성관리 메이븐사용하기  (라이브러리를 의미함: 의존성)
+  원격저장소(메이븐리포지토리)에서 필요한 라이브러리 다운로드 받는다.( 직접받지 않는다)
+  편리해진 라이브러리 받기 기능지원- 메이븐
+############################################
+
+
+
+  Spring DI  : spring container가 객체 생성가 주입을 해줌  (IOC 컨테이너라고 함, 제어의 역전)
+  - xml설정  (객체생성, 주입  지시서로 작성함 ) 
+  - java config
+  - 애너테이션
+  객체생성과 주입을 xml을 사용하여 작성한다.
+ 
+
+  수업시 만드는 샘플:
+  인터페이스를 활용한 변경이 유리한 코드 작성
+ (  변경에 유리한 코드작성하기  , 느슨한 결합 )
+ 인터페이스
+ 예제) Program 클래스와 Calculator 클래스 
+         Program 에서 Calculator 객체를 사용함  => 이것을 의존한다라고 말한다. 의존성 <dependency>
+         외부에서 생성된 Calculator객체를  Program에서 사용할 수 있도록 주입해야한다 <Injection>
+
+  Program   
+   느슨한결합 
+  Calculator (인터페이스)
+   -ACalculator
+   -BCalculator 
+ 
+   Program이 실행되기 위해서는  실제계산기 객체가 생성되고 주입되어야 한다. !!!  
+   객체생성과 주입이 일어나야 함 
+
+
+//수업과제
+객체생성, 주입을 이용한 예제 만들기  ( program,  calculator)
+1. 객체생성과주입을 직접하여 실행하기
+2. spring을 이용하여 실행하기
+   (xml 지시서작성하기)
+3. controller만들어서 실행하기  url요청시 실행하기
+
+2인 1조 조과제 수행하기
+
+
+
+/*  lombok 사용법:
+ *  구글에 lombok다운로드  tools에 두기 
+ *   설치방법 : java -jar lombok.jar
+ *  lombok.jar 다운로드 설치 및 pom에 추가해야 함
+ * 
+ * 	<dependency>
+			    <groupId>org.projectlombok</groupId>
+			    <artifactId>lombok</artifactId>
+			    <version>1.18.30</version>
+			    <scope>provided</scope>
+	 </dependency>
+	
+ * 
+ */

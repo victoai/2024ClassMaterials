@@ -1,0 +1,49 @@
+//인터페이스
+public interface SomethingDoI {
+	public void forStart();   
+	public void forCharacter(char c);   
+	public void bj(String c);
+}
+
+//인터페이스 구현
+public class LibA implements SomethingDoI {
+	@Override
+	public void forStart() {
+		for (int i = 1; i <= 5; i++) {
+			System.out.print("★");
+		}
+		System.out.println();
+	}
+
+	// 반복할 문자를 줘
+	@Override
+	public void forCharacter(char c) {
+		for (int i = 1; i <= 5; i++) {
+			System.out.println(c);
+		}
+	}
+	
+	@Override
+	public void bj(String c) {
+		System.out.println(c);
+	}
+}
+
+//실행(메인함수)
+public class LibMain {
+
+	public static void main(String[] args) {
+		LibA program = new LibA();
+		
+		program.forStart();
+		program.forCharacter('A');
+		
+		for(int i=0; i < 5; i++) {
+			program.bj("🍗🍗🍗");
+		}
+	}
+}
+
+
+
+

@@ -1,0 +1,55 @@
+########################
+
+Spring MVC로 서비스만들기
+
+스프링컨테이너(IOC컨테이너)
+애너테이션방법:  @Controller,@Component @Autowired
+
+스프링에서 오라클디비 사용하기
+dependency 추가
+-- spring db를 위한
+   spring -jdbc
+   ojdbc8
+######################## 
+ mvc 
+  - controller 
+    클래스단위 url매핑
+  @Controller
+    매서드단위로  url매핑
+
+
+cotroller                            Service 만들기   (@Component)                                  view만들기
+  /gugudan?dan=3                   -getDan()                                                        dan
+ /movieList                        -getMovieList()                                                  movieList
+ /restaurantInfo                   -getRestaurantInformation()                                      restaurantInfo
+  
+Springmvc 
+서비스만들어서 제공하기
+1.   3단출력하기
+2.   영화정보출력하기
+3.   맛집정보출력하기 
+  
+
+예시) 
+드라마정보서비스만들기  2인1조
+드라마정보출력하기  DAO사용하기
+테이블
+create table drama_tbl(
+   code   varchar2(5)  primary key ,
+   title  varchar2(20) ,
+   actors varchar2(30) );
+  
+
+예시) 
+드라마정보서비스만들기  2인1조
+드라마정보출력하기  DAO사용하기
+테이블
+create table drama_tbl(
+   code   varchar2(5)  primary key ,
+   title  varchar2(20) ,
+   actors varchar2(30) )
+;
+ 
+
+
+ 

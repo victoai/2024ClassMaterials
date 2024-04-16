@@ -1,0 +1,5 @@
+
+
+String dateString  = "2012-10-21";
+SimpleDateFormat dateFormat  = new SimpleDateFormat("yyyy-MM-dd");
+Date date = dateFormat.parse(dateString);

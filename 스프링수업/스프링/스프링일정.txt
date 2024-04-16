@@ -1,0 +1,70 @@
+0. 변경에 유리한 코드작성하기
+1. 스프링 설치,  hello spring  만나기 ,   FrontController 패턴 ( Dispatcher Servlet)
+   Spring MVC  ,    Controller 작성방법   
+    -Controller   인터페이스 구현
+    -@Controller   이용방법 ,     객체생성과 주입   xml 작성법
+    Spring MVC 맛보기 (  버킷리스트 제공하기 ) 
+   Controller의 파라미터 수집( 편리해진 기능) 
+   @RequestMapping( "/param")
+   public String param1( @RequestParam( required=false , defaultValue="1") int su ) {
+   ## 수업시 실습과제  :  인터페이스를 활용한 변경이 유리한 코드 작성 예제 만들기  Calculator ACalculator, BCalculator 
+  Program <-> Calculator(인터페이스 )  인터페이스기반의  느슨한 결합 
+2. Spring MVC  서비스만들기 
+    스프링컨테이너 (IOC 컨테이너)  
+    @Controller , @Component,  @Autowired 
+  Spring MVC 3단정보, 영화정보조회, 맛집정보조회
+   Controller, Model, View 
+   스프링에서 오라클디비 사용하기 (Spring db=> Spring jdbc, ojdbc8 dependency )
+  @Controller  - 매서드단위로  url매핑 할 수 있다
+  과제 : 드라마정보 서비스 만들기 2인 1조
+3.  실습
+4.  파일업로드   - commons-fileupload  ,  commons-io 
+   Servlet context  
+   <beans:bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">   
+   </beans:bean>
+   파일업로드  form  method="post"  enctype="multipart/form-data">
+   서버에 데이터보내기 - 요청헤더, 요청바디 
+     요청바디  -> 읽어오기
+   
+   BufferedReader reader = new BufferedReader( new InputStreamReader ( request.getInputStream()) ;
+   StringBuilder resultData  = new  StringBulder();
+   while(   ( line  = reader.readLine()  ) != null ) {
+             resultData.append( line );
+   }
+  
+5.  쿠키 -> 방문자 수 구하기, 아이디기억하기 ,     예외처리, Spring Test  작성하기 
+     open API - naver 검색 api ,  공공데이터 날씨 정보  api 
+      쿠키생성하기   Cookie cookie  = new Cookie("id" , id) ;    response.addCookie( cookie ); 
+    쿠키삭제하기   Cooke cookie = new Cooke("id", id) ; cookie.setMaxAge(0) ; response.addCookie( cookie)
+    예외처리 : Exception,  runtimeExcpetion  (필수, 선택)
+      @ExceptionHandler(SQLException.class)
+	public String catcher1( Model model,  SQLException ex   ) {
+		model.addAttribute("ex", ex);
+		return "err2";
+    }  
+6. mybatis 사용하기
+Easy &  simple
+@Log4j  사용하여 로그 출력하기 
+7차시  
+Mybatis  SqlSession 사용하여 데이터베이스 처리하기 , 조인된 쿼리 작성하기
+mybatis  - pom.xml (spring-jdbc, ojdbc8 ,   mybatis-jdbc, mybatis )
+- spring -> root-context.xml   ( datasource , sqlSessionFactory, sqlSession  bean생성 )
+- mapper 작성 ( src/main/resources) , repository (dao) 작성  ,   -SqlSession   주입 
+   selectOne ,  selectList, insert ,  update , delete   , -repository  테스트하기
+
+Mybatis사용시 주의사항 !!!! ( 컬럼의 이름과 DTO 객체의 속성명이 일치해야 한다.  다르다면 값이 제대로 담길 수 없다)
+==>resultMap으로 해결할 수 있다. 
+Service를 두는 이유  - 하나의 서비스에는 여러개의 dao가 필요할 수 있다. - 고객등록을 위해서 위도와 경도값을 api로 가져올 수 도 있다.
+ - 비지니스를 처리할 수 있는 계층이 필요하다(서비스) 
+Interface기반으로 개발을 하는 이유에 대해서 알아보기  -테스트가 편리하다,  -각자 나눠서 개발이 가능하다  , 
+- 서비스와 dao에 대해서 인터페이스를 기반으로 구현한다. 
+8차시 interceptor   
+    
+   
+ 
+
+
+   
+   
+
+

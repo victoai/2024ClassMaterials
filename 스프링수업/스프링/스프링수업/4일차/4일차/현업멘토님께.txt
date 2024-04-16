@@ -1,0 +1,15 @@
+프로젝트상황
+1차  FRONT 프로젝트                      5
+2차  콘솔 자바 기반 개발 프로젝트     4
+3차  web 프로젝트 MVC2                 5
+4차  Spring 자바 웹 개발 프로젝트     5주간 
+
+수업진행상황
+
+ FRONT1차 - html,css, javascript  
+ 자바   
+ oracle db 
+ web -mvc2 
+ Spring  
+
+ 마지막 5주차에 aws연동과 관련된 수업을 진행할 예정입니다.

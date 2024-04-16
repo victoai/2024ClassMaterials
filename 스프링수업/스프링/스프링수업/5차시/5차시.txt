@@ -1,0 +1,93 @@
+스프링5일차  
+
+###################### 
+쿠키세션사용하기 
+ - 쿠키: 방문자수 구하기, 아이디기억하기 
+예외처리하기
+Springtest  테스트작성하기 -dao, service 테스트하기
+######################
+오후 실습과제
+dao,service 테스트 실습하기
+공공데이터 실습하기 (프린트물 제공)
+######################
+  
+############ 
+쿠키생성하기
+############
+Cookie cookie = new Cookie("id",  id);  // key , value
+응답에 저장
+response.addCookie(cookie);
+쿠키를 삭제
+Cookie cookie = new Cookie("id" , id);    //같은 key 쿠키를 다시 저장함 (삭제가 별로도 존재하지 않음, 같은 이름으로 다시 저장함)
+cookie.setMaxAge(0);
+response.addCookie(cookie);
+
+
+############################
+ 예외처리 : 필수예외, 선택예외
+필수: Exception 상속받은 예외             :
+       =>try~ catch ,   throws (상위에게 미루는 방법 , 던지기)
+선택: RuntimeException 상속받은 예외  :
+       =>try ~ catch 만 사용가능
+############################
+
+
+############################
+ ■ TestService서비스 테스트하기
+1. TestService 오른쪽 마우스클릭 -> new - > Junit Test case -> Finish
+2. @Test 로 test매서드 작성
+    assert매서드 작성
+3. Spring dependency 의존성 추가
+4. 테스트를 위한 설정xml 작성하기
+◎ Spring Test dependency
+<dependency>
+<groupId>org.springframework</groupId>
+<artifactId>spring-test</artifactId>
+<version>${org.springframework-version}</version>
+</dependency>
+<dependency>
+<groupId>junit</groupId>
+<artifactId>junit</artifactId>
+<version>4.12</version>
+</dependency> 
+############################
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/test.xml" , "file:src/main/webapp/WEB-INF/spring/**/test2.xml"} 
+
+
+@Controller
+public class ExceptionCatcher2 {
+
+	 @ExceptionHandler(SQLException.class)
+	public String catcher1( Model model,  SQLException ex   ) {
+		model.addAttribute("ex", ex);
+		return "err2";
+	}	  
+	
+	@RequestMapping("/db2")	
+	public void method1() throws SQLException    { 		 			
+		throw new SQLException();		 
+	}
+	
+	
+	@RequestMapping("/db3")	
+	public void method2() throws SQLException    { 		 			
+		throw new SQLException();		 
+	}
+}
+
+
+
+@ControllerAdvice
+public class GlobalCatcher {
+	
+	@ExceptionHandler(SQLException.class)
+	public String catcher( SQLException ex  , Model model) {
+		model.addAttribute("ex", ex);
+		return "err2";
+		
+	}
+
+}
+
+

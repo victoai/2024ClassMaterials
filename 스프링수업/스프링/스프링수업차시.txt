@@ -1,0 +1,292 @@
+1. 변경에 유리한 코드 작성, 설정파일 두기
+2.  hello project 
+   스프링에서  MVC  사용해보기  MVC  :  Model객체 제공 ,  view 사용해 보기
+   스프링에서 데이타 응답하기   @ResponseBody 
+   -json응답 ( com.fasterxml.jackson.core.jackson-databind2.9.3.jar ) , member객체 , ArrayList응답
+3.   Controller의 변화 
+     - Controller인터페이스 , Controller 어노테이션 
+      Spring DI  , IOC container 
+      Calculator  ,  ACalculator , BCalculator   , Program   xml지시서 사용하기  , 어노테이션(@Component, @Autowired)
+   
+   ApplicationContext ac =new GenericXmlApplicationContext("com/acorn/day1/di/setting.xml");
+   Program program - ac.getBean( Program.class);
+   int result  = program.addP(5,3);
+   System.out.println( result ) ;
+
+   setting.xml
+   <bean id="calculator"  class="com.acorn.day1.di.BCalculator" />
+   <!-- 세터주입 -->
+    <bean id="program" class='com.acorn.day1.di.Program">
+    <property name="calculator" ref="calculator" />
+  </bean>
+
+  <!-- 생성자 주입  -->
+  <bean id="program" class="com.acorn.day1.di.Program">
+     <constructor-arg ref="calculator" />
+ </bean>
+
+
+@Controller
+ public class pController2{
+     Program p;
+
+     @Autowired
+     public void setP( Program p) {
+         this.p p;
+     }
+
+     @GetMapping("/p2.ok")
+     public String test1(){
+        int result  = p.addP( 5,3);
+        System.out.println( result );
+        return "view";
+    }   
+ }
+  
+
+root-context.xml  
+
+//controller  인터페이스로  Controller 를 만든경우는 이 설정을 해 주어야 한다. 인식함
+<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+   <property name="order"  value="1" />
+</bean>
+
+<bean name="/hello.ok"  class="com.acorn.day1.AController"></bean>
+<bean name="/p.ok"  ref="program"> </property>
+</bean>
+
+ 
+
+
+
+ requestMapping 작성하기
+ @ResquestMapping(  { "/login/hello.do"  ,  "/login/hi.do"}  )
+ @RequestMapping( "/login/*" )
+ @RequestMapping( "/login/**/tmp/*.do ")
+ @RequestMapping( "/login/??")
+ @RequestMapping( "/*.do ")
+ @RequestMapping( "/*.???")
+
+ 
+ @RequestMapping("/param")
+ public String param( @RequestRarma (value="rid" , requiered=false )  String id ) {
+@RequestMapping(value="/paramT2" ,  method=RequestMethod.POST ) 
+	public String  test2(@RequestParam ArrayList<String> fruit) {		
+@RequestMapping(value="/paramT1" ,  method=RequestMethod.POST ) 
+	public String  test1(@RequestParam String[] fruit) {	
+@RequestMapping("/rParam5")
+	public String param5(@RequestParam(required=false, defaultValue="1") int  su) {  		
+ //?su=7   int로 변환까지 해서 바인딩됨
+
+   
+    @RequestMapping("/user")     
+    public void test1( @ModelAttribute User user){  //기본생성자, setter 사용 
+ 	
+
+4. 요청정보 확인하기 ( 요청줄 + 요청헤더 + 요청바디) 구성됨 
+     controller 응답 type 확인하기 
+
+    mvc :  view 반환  ( void, String, ModelAndView ) 
+   데이터응답  json
+  @ResponseBody , json 관련라이브러리 필요함  -  jackson-data-bind 
+ 
+   
+  클라이언트가 서버로 요청방법   (get, post)
+  1)form요청 (get, post 선택)
+  2)링크(a href) : get
+  3)ajax   :get, post 선택
+
+
+  get요청시 : 서버로 보내는 데이터 요청헤더에 보내짐 
+ post요청시  :서버로 보내는 데이터 요청바디에 보내짐 
+
+ ajax요청시   method type=> get, post, put , delete  사용할 수 있다.
+
+
+
+ @PostMapping("/formRegisterPost")
+   public void formpost( HttpServletRequest  request) throws IOException{
+
+   
+     BufferedReader reader = new BufferedReader( new InputStreamReader(  request.getInputStream());
+     String line;
+     StringBuilder resultData =new StringBuilder();
+     while(  ( line = reader.readLine() )  != null){
+              resultData.append(line);
+     }
+     System.out.println( resultData );
+}
+
+
+// 스프링
+
+ ajax = > let user  =  {  id:id, pw:pw  } ;
+ let userStr = JSON.stringify( user) ;
+
+  $.ajax(  { type:"post" ,  url: "" , headers:{ 'content-Type': 'application/json'} ); 
+
+
+
+ public void formpost( @RequestBody   User user ){
+
+
+
+}
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+
+	function callA(){
+		
+		let user = { id:"test" ,pw:"dfdfdfdf"};
+		
+		$.ajax({
+			type:"post",
+			url:"ajax1",
+			data: user,
+			success: function( data){
+				alert( data);
+			},
+			err:function(){
+				alert("dkfdfkdfk");
+			}
+			
+		});
+	}
+	
+	
+	function callB(){
+		
+		let user = { id:"test" ,pw:"dfdfdfdf"};
+		
+		$.ajax({
+			type:"post",
+			url:"ajax2",
+			data: user,
+			success: function( data){
+				alert( data);
+			},
+			err:function(){
+				alert("dkfdfkdfk");
+			}
+			
+		});
+	}
+</script>
+</head>
+<body>
+<button  onclick="callA()">클릭</button>
+<button  onclick="callB()">클릭</button>
+</body>
+</html>
+
+
+5차시  
+쿠키세션 사용하기 
+-쿠키: 방문자수 구하기, 아이디기억하기 
+ 예외처리하기 
+ Springtest 테스트작성하기
+
+ -- Spring dependency
+ <dependency>
+    <groupId> org.springframework </groupId>
+    <artifactId>spring-test</artifactId>
+    <version>${org.springframework-version</version>
+ </dependency>
+
+ <dependency>
+    <groupId> junit</groupId>
+    <artifactId>junit</artifactId>
+    <version>4.12</version>
+ </dependency>
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations= { "file:src/main/webapp/WEB-INF/spring/**/test.xml", "file:src/main/webapp/WEB-INF/spring/**/test2.xml"} );
+
+
+예외처리 : 필수예외, 선택예외
+필수: Exception 상속받은 예외  ( try~ catch,  throws )
+선택: RuntimeException 상속받은 예외 
+
+쿠키생성하기
+Cookie cookie  = new Cookie( "id", id) ;
+응답에 저장하기 
+response.addCookie( cookie );
+쿠키를 삭제하기
+Cookie cookie  = new Cokkie("id", id);
+cookie.setMaxAge(0);
+response.addCookie( cookie) ;
+
+
+예외처리
+@Controller
+public class ExceptionsCatcher{
+     
+     @ExceptionHandler( SQLException.class )
+    public String catcher( Model model, SQLException ex) {
+           model.addAttribute("ex", ex);
+           return "err2";
+    }
+
+
+   @RequestMapping("/db2")
+   public void method1() thorws SQLException}
+            throw new SQLException();
+   }
+
+}
+
+
+@ControllerAdvice 
+public class GlobalCatcher{
+    public String catcher( SQLException ex, Model model ) {
+       model.addAttribute("ex", ex);
+       return "err2";
+    }
+}
+
+
+
+스프링6차시
+
+
+서비스가 필요한 이유 알아보기
+인터페이스 기반의 개발이 좋은 이유 알아보기
+
+mybatis 사용하기
+Easy &  simple
+@Log4j
+사용하여 로그 출력하기
+
+
+
+7차시
+mybatis - sqlsession 사용하여 데이터 베이스 처리하기 
+pom.xml => spring-jdbc, ojdbc8 , mybatis-jdbc, mybatis
+
+
+
+
+
+  
+  
+   
+ 
+
+
+
+    
+  
+
+    
+      
+  
+
+

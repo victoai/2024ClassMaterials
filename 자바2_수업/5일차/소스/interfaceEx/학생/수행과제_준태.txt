@@ -1,0 +1,41 @@
+public interface 인터페이스활용_ex {
+	public void doo();   
+}
+
+public class 인터페이스구현_ex implements 인터페이스활용_ex{
+	@Override
+	public void doo() {
+		System.out.println("ᓚᘏᗢ");
+	}
+}
+
+public class 라이브러리_ex{
+
+	public void forStart()  {
+     for( int i=1; i<=5; i++){
+          System.out.println("★");
+        }
+    }
+
+	public void forCharacter(  char  something ) {
+        for( int i=1; i<=5; i++){
+              System.out.println( something );
+        }
+    }
+
+	public void forSomethingDo( 인터페이스활용_ex ex){
+       for( int i=1; i<=5; i++){
+    	   ex.doo() ;
+       };
+    };
+}
+
+public class  T{
+	public static void main(String[] args) {
+		  라이브러리_ex ex = new 라이브러리_ex();
+		 
+		  ex.forStart();
+		  ex.forCharacter('w');
+		  ex.forSomethingDo( new 인터페이스구현_ex() );   //인터페이스를 구현한 객체를 넘겨줘야 함
+	} 
+}
