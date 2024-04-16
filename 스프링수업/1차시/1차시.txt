@@ -1,0 +1,99 @@
+Hello 스프링!!
+
+스프링 만나기.  
+Hello project.  만나기 
+
+
+MVC2 와. 스프링 MVC   동작방식  알아보기
+
+
+달라진  MVC 코드  
+Controller 
+Model
+View
+
+1  controller변화 
+2. 매핑의 변화 
+3. 편리해진 데이터 수집기능 
+
+
+Controller변화 
+- POJO 작성함 
+- Controller 인퍼테이스 구현
+  -클래스단위매핑
+-@controller. 애너테이션 사용
+   -매서드 단위로 매핑 
+
+
+좋은점 만나기. ^^
+
+
+편리해진 데이터 수집기능 제공
+사용자의 데이터 수집기능 제공
+http요청시  헤더와 바디로 전달된 값을 쉽게 얻어 올 수 있다
+
+
+requestParam    
+ModelAttribute 
+
+
+?id=test&pw=1234
+
+이전의 방식. : 
+HttpServletRequest. Request  
+String id.  = Request.getParameter(“id”);
+String pw. = request.getParameter(“pw”);
+
+또는
+
+HttpServletRequest. Request  
+String id.  = Request.getParameter(“id”);
+String pw. = request.getParameter(“pw”);
+User user = new User(id, pw);
+
+
+==>스프링에서 어떻게 바뀌는지 경험해보자 
+
+스프링에서의 변화
+우와 좋다 !!!!
+
+
+
+실습 1) 기존의  MVC2 문제를 스프링으로 작성해보기
+
+
+실습과제!!!
+— 3단 정보 출력하기
+— 화이팅 메시지 3개 출력하기
+— 책정보 3개 출력하기
+     (Book  클래스 사용하기)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+S
+
+
+
+
+
+
+
+
+
+
+
+
