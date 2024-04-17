@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+ 
+	<!--  추가되어야 하는 코드  -->
+	 <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+	 <property name="order" value="1" />
+	 </bean>
+	 
+	<!-- 매핑정보 제공하기   -->
+	<bean name="/hello2.ok" class="com.acorn.web.BController"></bean>
+	<bean name="/favorite" class="com.acorn.web.FavoriteController"></bean>
+	<bean name="/test" class="com.acorn.web.CController"></bean>
+		
+</beans>
