@@ -1,0 +1,63 @@
+package aa.bb.tt;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class 서버가바로응답하기 {
+
+	@GetMapping("/data1")
+	public void test1(HttpServletResponse response) throws IOException {
+		String message = "data1 서버가 보낸 데이터 message";
+		response.setContentType("text/plain;charset=utf-8");
+		response.setHeader("Content-Length", String.valueOf(message.getBytes().length));
+		response.getWriter().println(message);
+
+	}
+
+	@GetMapping("/data2")
+	public ResponseEntity<String> test2() {
+		String message = " ResponseEntity 서버가 보내는 message !!!!";
+		return ResponseEntity.ok().header("Content-Type", "text/plain;charset=utf-8")
+				.header("Content-Length", String.valueOf(message.getBytes().length)).body(message);
+	}
+	
+	
+	@ResponseBody
+	@RequestMapping( value="/data3"  , produces = "text/plain;charset=UTF-8" )
+	public String test3() {
+		String message = "서버가 보내는 message ^^^^^^";
+		return message;
+		 
+	}
+	
+	
+	 @ResponseBody
+	 @GetMapping("/data4")
+	  public  User  test4( )  {			 
+		 User user = new User();
+		 user.setId("wjy");
+		 user.setPw("1234");
+		 return user;		 
+			
+	 }
+	 
+	 
+	 @GetMapping("/data5")
+	  public void test5(HttpServletResponse response ) throws IOException  {			
+			response.setContentType("application/json;charset=utf-8");				 
+			response.getWriter().println( "{ \"id\" : \"wjy\" , \"pw\":\"0000\"}");
+			
+	 }
+
+	
+	
+
+}
