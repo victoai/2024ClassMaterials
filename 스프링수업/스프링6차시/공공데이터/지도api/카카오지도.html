@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>다음 지도 API</title>
+</head>
+<body>
+	<div id="map" style="width:500px;height:500px;"></div>
+
+	<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=2613f035dae7ee9dd2d398b49118edde"></script>
+ 	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		    mapOption = {
+		        //center: new kakao.maps.LatLng(37.56472, 126.97974), // 지도의 중심좌표
+				center: new kakao.maps.LatLng(37.621167571736, 127.07890174013), // 지도의 중심좌표
+		        level: 4, // 지도의 확대 레벨
+		        mapTypeId : kakao.maps.MapTypeId.ROADMAP // 지도종류
+		    }; 
+
+		// 지도를 생성한다 
+		var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+		// 지도에 마커를 생성하고 표시한다
+		var marker = new kakao.maps.Marker({
+		   // position: new kakao.maps.LatLng(37.56527, 126.97923), // 마커의 좌표
+		    position: new kakao.maps.LatLng(37.621167571736, 127.07890174013), // 마커의 좌표
+		    map: map // 마커를 표시할 지도 객체
+		});
+
+	</script>
+</body>
+</html>
