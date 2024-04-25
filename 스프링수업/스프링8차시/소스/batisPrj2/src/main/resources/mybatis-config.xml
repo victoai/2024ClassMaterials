@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias alias="OrderDTO" type="com.acorn.batis2.OrderDTO"/>
+		 <typeAlias alias="BoardDTO" type="com.acorn.batis2.BoardDTO"/>
+		  <typeAlias alias="SearchCondition" type="com.acorn.batis2.SearchCondition"/>
+	</typeAliases>
+</configuration>
