@@ -2,10 +2,13 @@ package com.acorn.validex;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class User {
 	
 	String id;
 	String pw;
+ 
 	Date birth;
 	public String getId() {
 		return id;
